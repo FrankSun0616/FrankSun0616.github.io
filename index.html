@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haoxuan Sun - Physics Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #60a5fa;
+            --secondary-color: #3b82f6;
+            --accent-color: #93c5fd;
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--bg-tertiary);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] header {
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-tertiary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%232563eb" stop-opacity="0.1"/><stop offset="100%" stop-color="%232563eb" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-secondary);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .education-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .education-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+        }
+
+        .education-institution {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Research Section */
+        .research {
+            background: var(--bg-secondary);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .research-card {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .research-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .research-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .research-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .research-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Publications Section */
+        .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .publication-item {
+            background: var(--bg-primary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-authors {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .publication-journal {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+            border: 1px solid var(--bg-tertiary);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-link {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-secondary);
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .education-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Haoxuan Sun</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content fade-in-up">
+                    <h1>Haoxuan Sun</h1>
+                    <p class="subtitle">PhD Student in Physics • Machine Learning Researcher</p>
+                    <p class="description">
+                        Passionate physicist exploring the intersection of machine learning and astrophysics. 
+                        Currently pursuing my PhD at Hong Kong University of Science and Technology, 
+                        working on cutting-edge research in stellar evolution, nucleosynthesis, and neural network applications.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="#research" class="btn btn-primary">Explore Research</a>
+                        <a href="mailto:haoxuansun0616@gmail.com" class="btn btn-secondary">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">About Me</h2>
+                <div class="about-content scroll-reveal">
+                    <div class="about-text">
+                        <p>I'm a PhD student in Physics at the Hong Kong University of Science and Technology, where I'm fortunate to be supported by the Hong Kong PhD Fellowship Scheme (HKPFS) and Redbird Scholarship.</p>
+                        <br>
+                        <p>My research focuses on applying machine learning techniques to astrophysical problems, particularly in stellar evolution and nucleosynthesis. I'm passionate about bridging the gap between computational methods and fundamental physics, using tools like neural networks to better understand the universe around us.</p>
+                        <br>
+                        <p>With a strong background in both theoretical physics and programming, I enjoy tackling complex problems that require innovative computational approaches.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Publications</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">6+</span>
+                            <span class="stat-label">Research Projects</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Conference Presentations</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">3</span>
+                            <span class="stat-label">Languages</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="education">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Education</h2>
+                <div class="education-grid scroll-reveal">
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-title">Doctor of Philosophy in Physics</h3>
+                                <div class="education-institution">Hong Kong University of Science and Technology</div>
+                            </div>
+                            <div class="education-date">Expected May 2028</div>
+                        </div>
+                        <div class="education-details">
+                            <strong>Awards:</strong> HKPFS (Hong Kong PhD Fellowship Scheme), Redbird Scholarship
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-title">Master of Science in Physics</h3>
+                                <div class="education-institution">Brown University</div>
+                            </div>
+                            <div class="education-date">May 2025</div>
+                        </div>
+                        <div class="education-details">
+                            <strong>GPA:</strong> 3.83/4.0
+                        </div>
+                    </div>
+                    <div class="education-card">
+                        <div class="education-header">
+                            <div>
+                                <h3 class="education-title">Bachelor of Arts in Physics and Mathematics</h3>
+                                <div class="education-institution">Macalester College</div>
+                            </div>
+                            <div class="education-date">May 2023</div>
+                        </div>
+                        <div class="education-details">
+                            <strong>GPA:</strong> 3.92/4.0<br>
+                            <strong>Awards:</strong> Physics Honors Program, Turck Presidential Scholarship (four times), Dean's List (all semesters)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="research">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Research Experience</h2>
+                <div class="research-grid scroll-reveal">
+                    <div class="research-card">
+                        <h3 class="research-title">Neural Network Application for Jet Calibration</h3>
+                        <div class="research-period">January 2024 - Current • Advisor: Jennifer Roloff</div>
+                        <div class="research-description">
+                            Developing Machine Learning models for jet calibration, integrating Particle Flow Networks (PFN) for reconstructing jet constituents. Implemented innovative dual-stream framework and knowledge distillation algorithms, achieving improved calibration accuracy with minimal error rates.
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <h3 class="research-title">Optical Galaxy Redshift Survey for Hydrogen Intensity Mapping</h3>
+                        <div class="research-period">October 2023 - Current • Tianlai Collaboration</div>
+                        <div class="research-description">
+                            Conducted redshift survey in the North Celestial Cap, obtaining 724 redshifts from 2801 targets. Utilized V-band photometry and spectroscopic observations with the WIYN telescope to support hydrogen intensity mapping studies.
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <h3 class="research-title">Metallicity-Dependent Isotopic Abundance Models</h3>
+                        <div class="research-period">January 2022 - September 2022 • Advisor: Christopher West</div>
+                        <div class="research-description">
+                            Applied machine learning algorithms (Random Forest) and Grid Search to select best-fit isotopic scaling models based on solar observations. Achieved consistent results with less than 8.7% error and motivated modifications to chemical evolution models.
+                        </div>
+                    </div>
+                    <div class="research-card">
+                        <h3 class="research-title">Spatially-resolved Study of Neutral Gas in Galaxies</h3>
+                        <div class="research-period">January 2022 - June 2022 • Advisor: John Cannon</div>
+                        <div class="research-description">
+                            Performed data reduction using CASA and analysis on nearby, star-forming galaxies observed with VLT. Conducted the first spatially-resolved study of neutral gas components, measuring properties and kinematics of these systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="publications">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Publications</h2>
+                <div class="publications-list scroll-reveal">
+                    <div class="publication-item">
+                        <div class="publication-title">The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis</div>
+                        <div class="publication-authors">West, C., Heger, A., Côté, B., Serxner, L., & <strong>Sun, H.</strong> (2025)</div>
+                        <div class="publication-journal">The Astrophysical Journal, 987(1), 51</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="publication-title">Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion</div>
+                        <div class="publication-authors">Hu, Z., Gao, Z., <strong>Sun, H.</strong>, Chen, C., & Yang, X. (2024)</div>
+                        <div class="publication-journal">arXiv preprint arXiv:2403.07250</div>
+                    </div>
+                    <div class="publication-item">
+                        <div class="publication-title">Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances</div>
+                        <div class="publication-authors"><strong>Sun, Haoxuan</strong></div>
+                        <div class="publication-journal">Macalester Journal of Physics and Astronomy, Vol. 11: Iss. 1, Article 14</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Skills & Expertise</h2>
+                <div class="skills-grid scroll-reveal">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">R</span>
+                            <span class="skill-tag">Mathematica</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Research Tools</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">Neural Networks</span>
+                            <span class="skill-tag">MESA</span>
+                            <span class="skill-tag">CASA</span>
+                            <span class="skill-tag">LaTeX</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Mandarin (Native)</span>
+                            <span class="skill-tag">English (Fluent)</span>
+                            <span class="skill-tag">Spanish (Fluent)</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Specializations</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Astrophysics</span>
+                            <span class="skill-tag">Stellar Evolution</span>
+                            <span class="skill-tag">Nucleosynthesis</span>
+                            <span class="skill-tag">Cosmology</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Get In Touch</h2>
+                <div class="contact-grid scroll-reveal">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <a href="mailto:haoxuansun0616@gmail.com" class="contact-link">haoxuansun0616@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <span class="contact-link">612-963-1028</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🎓</div>
+                        <a href="https://scholar.google.com/citations?hl=en&user=hYP0soIAAAAJ" class="contact-link" target="_blank">Google Scholar</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <a href="https://gitlab.com/haoxuan_sun/jetcalibml" class="contact-link" target="_blank">GitLab Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Haoxuan Sun. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const themeToggle = document.querySelector('.theme-toggle');
+            
+            if (savedTheme === 'dark') {
+                document.body.setAttribute('data-theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.98)' 
+                    : 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = document.body.getAttribute('data-theme') === 'dark' 
+                    ? 'rgba(17, 24, 39, 0.95)' 
+                    : 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
