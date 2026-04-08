@@ -3,64 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haoxuan Sun - Experimental High Energy Physicist & ML Innovator</title>
+    <title>Haoxuan (Frank) Sun | Physics</title>
+    <meta
+        name="description"
+        content="Haoxuan (Frank) Sun is a Physics PhD student at HKUST working across experimental high energy physics, computational methods, cosmology, and survey science."
+    >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100;200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet"
+    >
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --accent: #06b6d4;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            
-            --bg-primary: #0f0f23;
-            --bg-secondary: #1a1a3e;
-            --bg-tertiary: #252547;
-            --bg-card: rgba(255, 255, 255, 0.05);
-            --bg-glass: rgba(255, 255, 255, 0.1);
-            
-            --text-primary: #ffffff;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            
-            --border: rgba(255, 255, 255, 0.1);
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            --shadow-xl: 0 35px 60px -12px rgba(0, 0, 0, 0.35);
-            
-            --glow: 0 0 20px rgba(99, 102, 241, 0.3);
-            --glow-lg: 0 0 40px rgba(99, 102, 241, 0.4);
+            --ink-strong: #13233f;
+            --ink: #203452;
+            --muted: #5a6981;
+            --paper: #f7f3ea;
+            --paper-strong: #fffdf7;
+            --surface: rgba(255, 253, 247, 0.8);
+            --surface-strong: rgba(255, 255, 255, 0.92);
+            --line: rgba(19, 35, 63, 0.12);
+            --line-strong: rgba(19, 35, 63, 0.22);
+            --accent: #bb6a30;
+            --accent-soft: rgba(187, 106, 48, 0.12);
+            --accent-cool: #0d766e;
+            --accent-cool-soft: rgba(13, 118, 110, 0.12);
+            --shadow: 0 24px 60px rgba(19, 35, 63, 0.12);
+            --shadow-soft: 0 16px 40px rgba(19, 35, 63, 0.08);
+            --radius-lg: 32px;
+            --radius-md: 20px;
+            --radius-sm: 14px;
+            --frame: min(1180px, calc(100vw - 2rem));
         }
 
-        [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f8fafc;
-            --bg-tertiary: #e2e8f0;
-            --bg-card: rgba(255, 255, 255, 0.7);
-            --bg-glass: rgba(255, 255, 255, 0.25);
-            
-            --text-primary: #1e293b;
-            --text-secondary: #475569;
-            --text-muted: #64748b;
-            
-            --border: rgba(0, 0, 0, 0.1);
-            --glow: 0 0 20px rgba(99, 102, 241, 0.2);
-            --glow-lg: 0 0 40px rgba(99, 102, 241, 0.3);
+        * {
+            box-sizing: border-box;
         }
 
         html {
@@ -68,2034 +46,1229 @@
         }
 
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+            margin: 0;
+            font-family: "IBM Plex Sans", sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 12% 12%, rgba(13, 118, 110, 0.1), transparent 28%),
+                radial-gradient(circle at 88% 10%, rgba(187, 106, 48, 0.13), transparent 24%),
+                radial-gradient(circle at 84% 82%, rgba(13, 118, 110, 0.08), transparent 20%),
+                linear-gradient(180deg, #fcfaf5 0%, #f7f3ea 52%, #eef3f4 100%);
+            line-height: 1.65;
         }
 
-        /* Animated Background */
-        .animated-bg {
+        body::before {
+            content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.6;
+            inset: 0;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(19, 35, 63, 0.035) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(19, 35, 63, 0.035) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 80%);
         }
 
-        .particle {
-            position: absolute;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            animation: float 20s infinite linear;
+        a {
+            color: inherit;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
+        img {
+            max-width: 100%;
+            display: block;
         }
 
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(15, 15, 35, 0.8);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-bottom: 1px solid var(--border);
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        ::selection {
+            background: rgba(187, 106, 48, 0.22);
         }
 
-        [data-theme="light"] .navbar {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .nav-container {
-            max-width: 1400px;
+        .frame {
+            width: var(--frame);
             margin: 0 auto;
-            padding: 1rem 2rem;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            padding: 1rem 0;
+            backdrop-filter: blur(18px);
+            background: rgba(252, 250, 245, 0.74);
+            border-bottom: 1px solid rgba(19, 35, 63, 0.08);
+        }
+
+        .topbar-inner {
+            width: var(--frame);
+            margin: 0 auto;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
+            gap: 1rem;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .brand {
             text-decoration: none;
-            transition: all 0.3s ease;
+            color: var(--ink-strong);
+            font-family: "Fraunces", serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            white-space: nowrap;
         }
 
-        .logo:hover {
-            filter: drop-shadow(var(--glow));
-            transform: scale(1.05);
-        }
-
-        .nav-menu {
+        .nav {
             display: flex;
-            list-style: none;
-            gap: 2rem;
-            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.15rem;
+            scrollbar-width: none;
         }
 
-        .nav-link {
-            color: var(--text-secondary);
+        .nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav a {
             text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            position: relative;
+            color: var(--muted);
+            border: 1px solid transparent;
+            border-radius: 999px;
+            padding: 0.65rem 1rem;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            transition: 180ms ease;
         }
 
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+        .nav a:hover,
+        .nav a.is-current {
+            color: var(--ink-strong);
+            border-color: var(--line);
+            background: rgba(255, 255, 255, 0.7);
         }
 
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            width: 80%;
+        .section {
+            padding: 5.5rem 0;
+            scroll-margin-top: 5.5rem;
         }
 
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--text-primary);
-            background: var(--bg-glass);
+        .section-tight {
+            padding-top: 2rem;
         }
 
-        .theme-toggle {
-            background: var(--bg-glass);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+        .eyebrow {
+            margin: 0 0 1rem;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.84rem;
+            color: var(--accent-cool);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
-        .theme-toggle:hover {
-            background: var(--bg-card);
-            transform: scale(1.1);
-            box-shadow: var(--glow);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: radial-gradient(ellipse at center, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
-        }
-
-        .hero-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .section-head {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 1rem 2rem;
+            align-items: end;
+            margin-bottom: 2rem;
         }
 
-        .hero-content {
-            animation: slideInLeft 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+        .section-head h2 {
+            margin: 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.04;
+            letter-spacing: -0.04em;
+            color: var(--ink-strong);
         }
 
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: slideInRight 1s cubic-bezier(0.4, 0.0, 0.2, 1);
+        .section-head p {
+            margin: 0;
+            max-width: 38rem;
+            color: var(--muted);
         }
 
-        .profile-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 2rem;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: var(--shadow-xl);
-            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+        .hero {
+            padding: 4.5rem 0 3rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .hero-copy,
+        .hero-panel,
+        .source-strip,
+        .about-panel,
+        .fact-card,
+        .research-card,
+        .publication,
+        .timeline-item,
+        .contact-card {
+            border: 1px solid var(--line);
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .hero-copy {
+            padding: clamp(2rem, 5vw, 4rem);
+            border-radius: var(--radius-lg);
             position: relative;
             overflow: hidden;
         }
 
-        .profile-card::before {
-            content: '';
+        .hero-copy::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary), var(--secondary), transparent);
-        }
-
-        .profile-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: var(--shadow-xl), var(--glow-lg);
-        }
-
-        .profile-avatar {
-            width: 200px;
-            height: 200px;
+            inset: auto -15% -35% auto;
+            width: 320px;
+            height: 320px;
             border-radius: 50%;
-            margin: 0 auto 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            box-shadow: var(--glow);
-            animation: pulse 3s infinite;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .profile-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
-        .profile-avatar .fallback-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            background: radial-gradient(circle, rgba(187, 106, 48, 0.24), transparent 70%);
+            pointer-events: none;
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
+            margin: 0;
+            font-family: "Fraunces", serif;
+            font-size: clamp(3rem, 7vw, 5.8rem);
+            line-height: 0.94;
+            letter-spacing: -0.055em;
+            color: var(--ink-strong);
+            max-width: 10ch;
         }
 
-        .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 400;
+        .hero .subhead {
+            margin: 1.2rem 0 0;
+            max-width: 44rem;
+            font-size: 1.15rem;
+            color: var(--muted);
         }
 
-        .hero .description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        .cta-group {
+        .cta-row {
+            margin-top: 2rem;
             display: flex;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 0.9rem;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-            border: none;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            position: relative;
-            overflow: hidden;
+            padding: 0.95rem 1.35rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
         }
 
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn:hover::before {
-            left: 100%;
+        .btn:hover {
+            transform: translateY(-2px);
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl), var(--glow);
+            color: #fff;
+            background: linear-gradient(135deg, #9d5525 0%, #c97738 100%);
+            box-shadow: 0 14px 30px rgba(187, 106, 48, 0.25);
         }
 
         .btn-secondary {
-            background: var(--bg-glass);
-            color: var(--text-primary);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
+            color: var(--ink-strong);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
         }
 
-        .btn-secondary:hover {
-            background: var(--bg-card);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        .hero-note {
+            margin-top: 1.5rem;
+            font-size: 0.96rem;
+            color: var(--muted);
+            max-width: 38rem;
         }
 
-        /* Floating Stats */
-        .floating-stats {
-            position: absolute;
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
+        .hero-panel {
+            border-radius: var(--radius-lg);
+            padding: 1.2rem;
+            display: grid;
             gap: 1rem;
-            animation: slideInRight 1s 0.5s both cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
-        .stat-bubble {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            text-align: center;
-            min-width: 120px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .stat-bubble:hover {
-            transform: scale(1.1);
-            box-shadow: var(--glow);
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 8rem 0;
+        .portrait-wrap {
             position: relative;
-        }
-
-        .section-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about {
-            background: radial-gradient(ellipse at center, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-
-        .about-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .about-highlight {
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 2rem;
-            margin: 2rem 0;
-        }
-
-        .about-metrics {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        .metric-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
+            border-radius: calc(var(--radius-lg) - 8px);
             overflow: hidden;
+            min-height: 420px;
+            background:
+                linear-gradient(160deg, rgba(13, 118, 110, 0.12), rgba(187, 106, 48, 0.14)),
+                var(--paper-strong);
         }
 
-        .metric-card::before {
-            content: '';
+        .portrait-wrap::after {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            inset: 0;
+            background:
+                linear-gradient(180deg, transparent 0%, rgba(19, 35, 63, 0.08) 100%);
+            pointer-events: none;
         }
 
-        .metric-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
-        }
-
-        .metric-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            display: block;
-        }
-
-        .metric-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-top: 0.5rem;
-        }
-
-        /* Timeline */
-        .timeline-container {
-            position: relative;
-            padding: 2rem 0;
-        }
-
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            display: flex;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .timeline-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-
-        .timeline-content {
-            flex: 1;
-            max-width: 45%;
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 2rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.02);
-            box-shadow: var(--glow);
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: 50%;
-            top: 2rem;
-            width: 1rem;
-            height: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            transform: translateX(-50%);
-            box-shadow: 0 0 0 4px var(--bg-primary), var(--glow);
-        }
-
-        .timeline-date {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .timeline-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin: 0.5rem 0;
-        }
-
-        .timeline-subtitle {
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-description {
-            color: var(--text-secondary);
-            line-height: 1.6;
-        }
-
-        /* Research Grid */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .research-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            transition: all 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .research-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
-        }
-
-        .research-card:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: var(--shadow-xl), var(--glow-lg);
-        }
-
-        .research-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--glow);
-        }
-
-        .research-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .research-period {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .research-description {
-            color: var(--text-secondary);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .research-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .research-tag {
-            background: rgba(99, 102, 241, 0.1);
-            color: var(--primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-
-        /* Publications */
-        .publications-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .publication-card {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .publication-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
+        .portrait-wrap img {
+            width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            object-fit: cover;
+            object-position: center 18%;
         }
 
-        .publication-card:hover {
-            transform: translateX(10px);
-            box-shadow: var(--glow);
+        .snapshot {
+            border-radius: calc(var(--radius-lg) - 8px);
+            background: var(--surface-strong);
+            border: 1px solid var(--line);
+            padding: 1.35rem;
         }
 
-        .publication-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
+        .snapshot h2 {
+            margin: 0 0 0.35rem;
+            font-size: 1rem;
+            letter-spacing: 0.02em;
+            color: var(--ink-strong);
         }
 
-        .publication-title a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .snapshot p {
+            margin: 0;
+            color: var(--muted);
+            font-size: 0.96rem;
         }
 
-        .publication-title a:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .snapshot-grid {
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.8rem;
         }
 
-        .publication-authors {
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
-            font-style: italic;
+        .snapshot-item {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem;
+            background: rgba(255, 255, 255, 0.72);
         }
 
-        .publication-journal {
-            color: var(--primary);
-            font-weight: 600;
+        .snapshot-item strong {
+            display: block;
+            color: var(--ink-strong);
+            font-size: 1.45rem;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+
+        .snapshot-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .source-strip {
+            border-radius: var(--radius-lg);
+            padding: 1.4rem;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .source-card {
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+        }
+
+        .source-card h3 {
+            margin: 0 0 0.4rem;
+            font-size: 1rem;
+            color: var(--ink-strong);
+        }
+
+        .source-card p {
+            margin: 0 0 0.7rem;
+            color: var(--muted);
             font-size: 0.95rem;
         }
 
-        .publication-year {
-            background: var(--bg-secondary);
-            color: var(--text-primary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 1rem;
-            font-size: 0.8rem;
+        .source-card a {
+            color: var(--accent-cool);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.16em;
             font-weight: 600;
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
         }
 
-        /* Skills */
-        .skills-grid {
+        .source-note {
+            margin: 1rem 0 0;
+            padding: 0.95rem 1rem;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--accent-cool-soft), rgba(255, 255, 255, 0.85));
+            color: var(--ink);
+            font-size: 0.95rem;
+        }
+
+        .about-layout {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            gap: 1.6rem;
         }
 
-        .skill-category {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+        .about-panel {
+            border-radius: var(--radius-lg);
+            padding: clamp(1.5rem, 3vw, 2.2rem);
         }
 
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        .about-panel h3 {
+            margin: 0 0 1rem;
+            color: var(--ink-strong);
+            font-size: 1.2rem;
         }
 
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
+        .about-panel p {
+            margin: 0 0 1rem;
+            color: var(--ink);
         }
 
-        .skill-category h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
+        .about-panel p:last-child {
+            margin-bottom: 0;
         }
 
-        .skill-icon {
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .skill-list {
-            display: flex;
-            flex-direction: column;
+        .fact-stack {
+            display: grid;
             gap: 1rem;
         }
 
-        .skill-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .fact-card {
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.25rem;
         }
 
-        .skill-name {
-            color: var(--text-secondary);
-            font-weight: 500;
+        .fact-card h3 {
+            margin: 0 0 0.55rem;
+            font-size: 0.98rem;
+            font-family: "IBM Plex Mono", monospace;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
         }
 
-        .skill-level {
-            height: 6px;
-            background: var(--bg-secondary);
-            border-radius: 3px;
+        .fact-card p,
+        .fact-card ul {
+            margin: 0;
+            color: var(--ink);
+        }
+
+        .fact-card ul {
+            padding-left: 1rem;
+        }
+
+        .fact-card li + li {
+            margin-top: 0.45rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .research-card {
+            border-radius: var(--radius-md);
+            padding: 1.4rem;
+            position: relative;
             overflow: hidden;
-            flex: 1;
-            margin: 0 1rem;
-            position: relative;
         }
 
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 3px;
-            transition: width 2s ease;
-            position: relative;
-        }
-
-        .skill-progress::after {
-            content: '';
+        .research-card::before {
+            content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
+            inset: 0 auto 0 0;
+            width: 5px;
+            background: linear-gradient(180deg, var(--accent), var(--accent-cool));
         }
 
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
+        .research-card h3 {
+            margin: 0 0 0.55rem;
+            color: var(--ink-strong);
+            font-size: 1.18rem;
         }
 
-        .skill-percentage {
-            color: var(--text-muted);
+        .research-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .tag-row {
+            margin-top: 0.9rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .tag {
+            padding: 0.35rem 0.65rem;
+            border-radius: 999px;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 0.78rem;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--ink);
+        }
+
+        .publication-list {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .publication {
+            border-radius: var(--radius-lg);
+            padding: 1.45rem;
+        }
+
+        .publication-top {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            align-items: start;
+        }
+
+        .publication-year {
+            padding: 0.42rem 0.7rem;
+            border-radius: 999px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-family: "IBM Plex Mono", monospace;
             font-size: 0.8rem;
-            font-weight: 600;
-            min-width: 35px;
-            text-align: right;
+            white-space: nowrap;
         }
 
-        /* Contact */
-        .contact {
-            background: radial-gradient(ellipse at center, rgba(6, 182, 212, 0.05) 0%, transparent 70%);
+        .publication h3 {
+            margin: 0;
+            font-size: clamp(1.2rem, 2.5vw, 1.55rem);
+            line-height: 1.25;
+            color: var(--ink-strong);
+            max-width: 42rem;
+        }
+
+        .publication-authors,
+        .publication-venue,
+        .publication-note {
+            margin: 0.65rem 0 0;
+        }
+
+        .publication-authors {
+            color: var(--ink);
+        }
+
+        .publication-venue {
+            color: var(--accent-cool);
+            font-weight: 600;
+        }
+
+        .publication-note {
+            color: var(--muted);
+        }
+
+        .link-row {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .link-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.6rem 0.85rem;
+            border-radius: 999px;
+            text-decoration: none;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.76);
+            color: var(--ink-strong);
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .link-pill:hover {
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .timeline {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: minmax(120px, 0.3fr) minmax(0, 1fr);
+            gap: 1.2rem;
+            align-items: start;
+            border-radius: var(--radius-lg);
+            padding: 1.4rem;
+        }
+
+        .timeline-date {
+            font-family: "IBM Plex Mono", monospace;
+            color: var(--accent);
+            font-size: 0.88rem;
+        }
+
+        .timeline-body h3 {
+            margin: 0;
+            color: var(--ink-strong);
+            font-size: 1.15rem;
+        }
+
+        .timeline-body p {
+            margin: 0.45rem 0 0;
+            color: var(--muted);
         }
 
         .contact-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 1rem;
         }
 
-        .contact-item:hover {
-            transform: translateX(10px);
-            box-shadow: var(--glow);
+        .contact-card {
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 0.75rem;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: white;
-            box-shadow: var(--glow);
+        .contact-card h3 {
+            margin: 0 0 0.35rem;
+            color: var(--ink-strong);
+            font-size: 1.08rem;
         }
 
-        .contact-details h4 {
-            color: var(--text-primary);
+        .contact-card p {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .contact-card a {
+            color: var(--accent-cool);
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.16em;
             font-weight: 600;
-            margin-bottom: 0.25rem;
         }
 
-        .contact-details p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .contact-form {
-            background: var(--bg-glass);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            color: var(--text-primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .form-input {
-            width: 100%;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            padding: 0.75rem 1rem;
-            color: var(--text-primary);
-            font-family: inherit;
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-        }
-
-        .form-textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .contact-details p a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-details p a:hover {
-            color: var(--primary);
-        }
-
-        /* Status Messages */
-        .status-message {
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-bottom: 1rem;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .status-message.success {
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: var(--success);
-        }
-
-        .status-message.error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: var(--error);
-        }
-
-        .status-message.show {
-            display: flex;
-        }
-
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none !important;
-        }
-
-        /* Footer */
         .footer {
-            background: var(--bg-secondary);
-            border-top: 1px solid var(--border);
-            padding: 3rem 0 1rem;
-            text-align: center;
+            padding: 2rem 0 4rem;
         }
 
-        .footer-content {
-            max-width: 1400px;
+        .footer-box {
+            width: var(--frame);
             margin: 0 auto;
-            padding: 0 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.68);
+            padding: 1.25rem 1.4rem;
+            color: var(--muted);
+            font-size: 0.95rem;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
+        .footer-box strong {
+            color: var(--ink-strong);
         }
 
-        .social-link {
-            width: 50px;
-            height: 50px;
-            border-radius: 0.75rem;
-            background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-        }
-
-        /* Animations */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-
-        .scroll-reveal.revealed {
+        .reveal {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
 
-        /* Loading Animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--bg-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--border);
-            border-top: 3px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .hero-container,
-            .about-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .floating-stats {
-                position: relative;
-                top: auto;
-                right: auto;
-                transform: none;
-                flex-direction: row;
-                justify-content: center;
-                margin-top: 2rem;
-            }
-
-            .timeline-line {
-                left: 2rem;
-            }
-
-            .timeline-item {
-                flex-direction: row !important;
-                padding-left: 4rem;
-            }
-
-            .timeline-content {
-                max-width: none;
-            }
-
-            .timeline-marker {
-                left: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .research-grid {
+        @media (max-width: 980px) {
+            .hero-grid,
+            .about-layout,
+            .section-head {
                 grid-template-columns: 1fr;
             }
 
-            .about-metrics {
-                grid-template-columns: 1fr;
+            .source-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .floating-stats {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .portrait-wrap {
+                min-height: 360px;
             }
         }
 
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 1rem;
-            }
-
+        @media (max-width: 720px) {
             .section {
                 padding: 4rem 0;
             }
 
-            .section-container {
-                padding: 0 1rem;
+            .hero {
+                padding-top: 3rem;
+            }
+
+            .topbar {
+                padding: 0.8rem 0;
+            }
+
+            .topbar-inner {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .nav {
+                justify-content: center;
+                flex-wrap: wrap;
+                overflow: visible;
+            }
+
+            .nav a {
+                padding: 0.55rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-copy,
+            .hero-panel,
+            .source-strip,
+            .about-panel,
+            .publication,
+            .timeline-item {
+                border-radius: 24px;
+            }
+
+            .snapshot-grid,
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <!-- Animated Background -->
-    <div class="animated-bg" id="animatedBg"></div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Haoxuan Sun</a>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#research" class="nav-link">Research</a></li>
-                <li><a href="#publications" class="nav-link">Publications</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button></li>
-            </ul>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#top">Haoxuan Sun</a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#journey">Journey</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Haoxuan Sun</h1>
-                <p class="subtitle">Experimental High Energy Physicist & ML Innovator</p>
-                <p class="description">
-                    Advancing the frontiers of particle physics through cutting-edge experimental research at CERN. 
-                    Currently working on ATLAS experiment analysis while previously developing machine learning approaches 
-                    for CMS jet calibration. Combining high energy physics with innovative computational methods to unlock 
-                    the secrets of the Standard Model and beyond.
-                </p>
-                <div class="cta-group">
-                    <a href="#research" class="btn btn-primary">
-                        <i class="fas fa-atom"></i>
-                        Explore Research
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
+    <main id="top">
+        <section class="hero">
+            <div class="frame hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Physics / Data-intensive science / CERN</p>
+                    <h1>Haoxuan (Frank) Sun</h1>
+                    <p class="subhead">
+                        PhD student in Physics at the Hong Kong University of Science and Technology, with research spanning
+                        experimental high energy physics, computational methods, cosmology, and survey science. This page was
+                        refreshed against Google Scholar, INSPIRE-HEP, arXiv, and the HKUST Physics directory on April 8, 2026.
+                    </p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#publications">See Publications</a>
+                        <a class="btn btn-secondary" href="Haoxuan_Sun_CV.pdf" download>Download CV</a>
+                        <a class="btn btn-secondary" href="mailto:hsunbl@connect.ust.hk">Contact by Email</a>
+                    </div>
+                    <p class="hero-note">
+                        Current public record: HKUST Physics PhD student since 2025, previously at Brown University and
+                        Macalester College. Research threads visible in the public record include ATLAS-related particle
+                        physics work, CMS-oriented machine learning, Tianlai survey science, stellar nucleosynthesis, and
+                        Gauss-Bonnet cosmology.
+                    </p>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="profile-card">
-                    <div class="profile-avatar" id="profileAvatar">
-                        <img src="photo.JPG" alt="Haoxuan Sun" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-                        <div class="fallback-icon" style="display: none;">
-                            <i class="fas fa-atom"></i>
+
+                <aside class="hero-panel reveal">
+                    <div class="portrait-wrap">
+                        <img src="photo.JPG" alt="Portrait of Haoxuan Sun">
+                    </div>
+
+                    <div class="snapshot">
+                        <h2>Source-backed snapshot</h2>
+                        <p>Public profile data checked on April 8, 2026.</p>
+                        <div class="snapshot-grid">
+                            <div class="snapshot-item">
+                                <strong>4</strong>
+                                <span>publications listed on Google Scholar</span>
+                            </div>
+                            <div class="snapshot-item">
+                                <strong>3</strong>
+                                <span>Google Scholar citations</span>
+                            </div>
+                            <div class="snapshot-item">
+                                <strong>1</strong>
+                                <span>Google Scholar h-index</span>
+                            </div>
+                            <div class="snapshot-item">
+                                <strong>2025</strong>
+                                <span>PhD start year listed by HKUST and INSPIRE-HEP</span>
+                            </div>
                         </div>
                     </div>
-                    <h3>PhD Candidate</h3>
-                    <p>Hong Kong University of Science and Technology</p>
-                    <p><strong>HKPFS Fellow</strong></p>
-                </div>
+                </aside>
             </div>
-        </div>
-        <div class="floating-stats">
-            <div class="stat-bubble">
-                <span class="stat-number">6+</span>
-                <span class="stat-label">Projects</span>
-            </div>
-            <div class="stat-bubble">
-                <span class="stat-number">3</span>
-                <span class="stat-label">Publications</span>
-            </div>
-            <div class="stat-bubble">
-                <span class="stat-number">5+</span>
-                <span class="stat-label">Talks</span>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section class="section about" id="about">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
-                    Passionate about pushing the boundaries of physics through innovative computational methods
+        <section class="section section-tight">
+            <div class="frame source-strip reveal">
+                <div class="section-head">
+                    <div>
+                        <p class="eyebrow">Public Record</p>
+                        <h2>What Was Updated</h2>
+                    </div>
+                    <p>
+                        The site copy and publication list now reflect the current public record instead of the old
+                        Brown-focused snapshot.
+                    </p>
+                </div>
+
+                <div class="source-grid">
+                    <article class="source-card">
+                        <h3>Google Scholar</h3>
+                        <p>4 listed works, 3 citations, h-index 1, plus public labels in high energy physics and astrophysics.</p>
+                        <a href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Open profile</a>
+                    </article>
+
+                    <article class="source-card">
+                        <h3>INSPIRE-HEP</h3>
+                        <p>Structured author record with current HKUST PhD affiliation and three indexed works.</p>
+                        <a href="https://inspirehep.net/authors/2957887" target="_blank" rel="noopener noreferrer">Open author page</a>
+                    </article>
+
+                    <article class="source-card">
+                        <h3>HKUST Physics</h3>
+                        <p>Current directory entry listing PhD year 2025, supervisor Kirill Prokofiev, and HKUST email.</p>
+                        <a href="https://physics.hkust.edu.hk/people/sun-haoxuan" target="_blank" rel="noopener noreferrer">Open directory page</a>
+                    </article>
+
+                    <article class="source-card">
+                        <h3>ORCID</h3>
+                        <p>INSPIRE links the public ORCID record <code>0009-0007-5390-7852</code>.</p>
+                        <a href="https://orcid.org/0009-0007-5390-7852" target="_blank" rel="noopener noreferrer">Open ORCID</a>
+                    </article>
+                </div>
+
+                <p class="source-note">
+                    Google Scholar still shows Brown University because the profile is tied to a verified <code>brown.edu</code>
+                    email. INSPIRE-HEP and HKUST show the current HKUST PhD affiliation beginning in 2025, so this page uses
+                    those sources as the authority for present-day affiliation.
                 </p>
             </div>
-            <div class="about-grid scroll-reveal">
-                <div class="about-content">
+        </section>
+
+        <section class="section" id="about">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">About</p>
+                        <h2>A sharper academic homepage</h2>
+                    </div>
                     <p>
-                        I'm a PhD student in Physics at the Hong Kong University of Science and Technology, 
-                        where I'm fortunate to be supported by the prestigious Hong Kong PhD Fellowship Scheme (HKPFS) 
-                        and Redbird Scholarship.
+                        Instead of generic portfolio language, the page now presents a cleaner physics profile: current
+                        affiliation first, research themes second, and source transparency throughout.
                     </p>
-                    <div class="about-highlight">
+                </div>
+
+                <div class="about-layout">
+                    <article class="about-panel reveal">
+                        <h3>Research profile</h3>
                         <p>
-                            <strong>Research Focus:</strong> My work centers on experimental high energy physics with both ATLAS and CMS experiments at CERN. 
-                            Currently focused on ATLAS analysis (including STXS for Higgs measurements), while having developed machine learning 
-                            techniques for CMS jet calibration at Brown University. I specialize in applying advanced computational methods 
-                            to particle physics data analysis, pushing the boundaries of our understanding of fundamental particles and their interactions.
+                            I am a physics researcher whose public work moves between experimental particle physics,
+                            machine-learning-driven analysis, cosmology, and astrophysics. The most current institutional
+                            record places me at HKUST as a PhD student in Physics, while earlier training and publications
+                            connect to Brown University and Macalester College.
                         </p>
+                        <p>
+                            The publication record shows a genuinely interdisciplinary arc: a recent redshift-survey paper,
+                            work in stellar evolution and nucleosynthesis, a theory paper in Gauss-Bonnet cosmology with
+                            torsion, and earlier solo work on metallicity-dependent isotopic abundances. That mix is more
+                            interesting than a generic "ML innovator" label, so the site now foregrounds it directly.
+                        </p>
+                        <p>
+                            The current research summary also preserves the particle-physics direction from the previous site:
+                            doctoral work centered on experimental high energy physics at HKUST, with prior Brown-based work
+                            connected to machine learning for CMS jet calibration.
+                        </p>
+                    </article>
+
+                    <div class="fact-stack">
+                        <article class="fact-card reveal">
+                            <h3>Current home</h3>
+                            <p>
+                                Physics PhD student at the Hong Kong University of Science and Technology. HKUST lists
+                                thesis supervisor Kirill Prokofiev and a PhD year of 2025.
+                            </p>
+                        </article>
+
+                        <article class="fact-card reveal">
+                            <h3>Training</h3>
+                            <ul>
+                                <li>PhD in Physics, HKUST, 2025 - present</li>
+                                <li>M.S. in Physics, Brown University, 2023 - 2025</li>
+                                <li>B.A. in Physics and Mathematics, Macalester College, 2019 - 2023</li>
+                            </ul>
+                        </article>
+
+                        <article class="fact-card reveal">
+                            <h3>Keywords</h3>
+                            <p>
+                                Experimental high energy physics, ATLAS, CMS, Higgs analysis, machine learning, redshift
+                                surveys, stellar nucleosynthesis, cosmology, and computational data analysis.
+                            </p>
+                        </article>
+
+                        <article class="fact-card reveal">
+                            <h3>Selected honors</h3>
+                            <p>
+                                HKPFS, Redbird Scholarship, Turck Presidential Scholarship, and Dean's List recognition
+                                retained from the earlier site profile.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="research">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">Research</p>
+                        <h2>Work that connects experiments, models, and data</h2>
                     </div>
                     <p>
-                        With a strong foundation in both theoretical physics and advanced programming, I focus on tackling 
-                        complex challenges in experimental particle physics that require innovative solutions at the 
-                        intersection of physics, mathematics, and computer science. My work spans both major LHC experiments - 
-                        ATLAS and CMS - representing the cutting edge of our quest to understand the fundamental building blocks of the universe.
+                        The strongest version of this site is not just "I do physics" but a map of the problems you have
+                        already touched across particle physics and astrophysics.
                     </p>
                 </div>
-                <div class="about-metrics">
-                    <div class="metric-card">
-                        <span class="metric-value">4×</span>
-                        <span class="metric-label">Scholarships</span>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-value">3</span>
-                        <span class="metric-label">Languages</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Education Section -->
-    <section class="section" id="education">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Education</h2>
-                <p class="section-subtitle">
-                    Academic journey spanning three prestigious institutions across three countries
-                </p>
-            </div>
-            <div class="timeline-container scroll-reveal">
-                <div class="timeline-line"></div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">Expected May 2028</div>
-                        <h3 class="timeline-title">Doctor of Philosophy in Physics</h3>
-                        <div class="timeline-subtitle">Hong Kong University of Science and Technology</div>
-                        <div class="timeline-description">
-                            <strong>Awards:</strong> HKPFS (Hong Kong PhD Fellowship Scheme), Redbird Scholarship<br>
-                            <strong>Focus:</strong> Experimental Particle Physics (ATLAS & CMS), ML-driven High Energy Physics Analysis
+                <div class="cards">
+                    <article class="research-card reveal">
+                        <h3>Experimental particle physics at HKUST</h3>
+                        <p>
+                            Current doctoral work in physics at HKUST, with the previous site describing ongoing ATLAS and
+                            Higgs-focused analysis work in the CERN ecosystem.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">HKUST</span>
+                            <span class="tag">ATLAS</span>
+                            <span class="tag">Higgs physics</span>
                         </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">May 2025</div>
-                        <h3 class="timeline-title">Master of Science in Physics</h3>
-                        <div class="timeline-subtitle">Brown University, Providence, RI</div>
-                        <div class="timeline-description">
-                            <strong>GPA:</strong> 3.83/4.0<br>
-                            Advanced coursework in theoretical physics, computational methods, and research methodology
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">May 2023</div>
-                        <h3 class="timeline-title">Bachelor of Arts in Physics and Mathematics</h3>
-                        <div class="timeline-subtitle">Macalester College, St. Paul, MN</div>
-                        <div class="timeline-description">
-                            <strong>GPA:</strong> 3.92/4.0<br>
-                            <strong>Awards:</strong> Physics Honors Program, Turck Presidential Scholarship (4×), Dean's List (all semesters)
-                        </div>
-                    </div>
-                    <div class="timeline-marker"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </article>
 
-    <!-- Research Section -->
-    <section class="section research" id="research">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Research Experience</h2>
-                <p class="section-subtitle">
-                    Pioneering work at the intersection of experimental particle physics, machine learning, and computational analysis
-                </p>
-            </div>
-            <div class="research-grid scroll-reveal">
-                <div class="research-card">
-                    <div class="research-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3 class="research-title">ATLAS Experiment at CERN</h3>
-                    <div class="research-period">January 2024 - Current • ATLAS Collaboration, HKUST</div>
-                    <div class="research-description">
-                        Currently working on Simplified Template Cross Sections (STXS) analysis for Higgs boson measurements in the ATLAS experiment 
-                        at CERN. Developing advanced analysis frameworks for precision measurements of Higgs production and decay 
-                        processes, contributing to our understanding of electroweak symmetry breaking and potential new physics.
-                    </div>
-                    <div class="research-tags">
-                        <span class="research-tag">ATLAS</span>
-                        <span class="research-tag">STXS</span>
-                        <span class="research-tag">Higgs Physics</span>
-                        <span class="research-tag">CERN</span>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="research-title">Machine Learning for CMS Jet Calibration</h3>
-                    <div class="research-period">January 2024 - May 2025 • CMS Collaboration, Brown University</div>
-                    <div class="research-description">
-                        Developing advanced Machine Learning models for jet calibration in the CMS experiment using Particle Flow Networks (PFN). 
-                        Implemented innovative dual-stream framework and knowledge distillation algorithms, achieving 
-                        significant improvements in calibration accuracy with minimal error rates.
-                    </div>
-                    <div class="research-tags">
-                        <span class="research-tag">CMS</span>
-                        <span class="research-tag">Neural Networks</span>
-                        <span class="research-tag">Jet Calibration</span>
-                        <span class="research-tag">Brown University</span>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <i class="fas fa-telescope"></i>
-                    </div>
-                    <h3 class="research-title">Optical Galaxy Redshift Survey</h3>
-                    <div class="research-period">October 2023 - Current • Tianlai Collaboration</div>
-                    <div class="research-description">
-                        Conducting comprehensive redshift survey in the North Celestial Cap, successfully obtaining 724 
-                        redshifts from 2801 targets. Utilizing advanced V-band photometry and spectroscopic observations 
-                        with the WIYN telescope to support hydrogen intensity mapping studies.
-                    </div>
-                    <div class="research-tags">
-                        <span class="research-tag">Observational Astronomy</span>
-                        <span class="research-tag">Data Analysis</span>
-                        <span class="research-tag">Spectroscopy</span>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <h3 class="research-title">Stellar Evolution & Nucleosynthesis</h3>
-                    <div class="research-period">January 2022 - September 2022 • Advisor: Christopher West</div>
-                    <div class="research-description">
-                        Applied machine learning algorithms (Random Forest) with Grid Search optimization to develop 
-                        best-fit isotopic scaling models. Achieved remarkable consistency with less than 8.7% error, 
-                        leading to significant modifications in chemical evolution models.
-                    </div>
-                    <div class="research-tags">
-                        <span class="research-tag">Machine Learning</span>
-                        <span class="research-tag">MESA</span>
-                        <span class="research-tag">Stellar Physics</span>
-                    </div>
-                </div>
-                <div class="research-card">
-                    <div class="research-icon">
-                        <i class="fas fa-satellite"></i>
-                    </div>
-                    <h3 class="research-title">Neutral Gas in Galaxies</h3>
-                    <div class="research-period">January 2022 - June 2022 • Advisor: John Cannon</div>
-                    <div class="research-description">
-                        Performed sophisticated data reduction using CASA software and comprehensive analysis on nearby, 
-                        star-forming galaxies observed with VLT. Conducted the first spatially-resolved study of neutral 
-                        gas components, measuring detailed properties and kinematics.
-                    </div>
-                    <div class="research-tags">
-                        <span class="research-tag">Radio Astronomy</span>
-                        <span class="research-tag">CASA</span>
-                        <span class="research-tag">Galaxy Evolution</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <article class="research-card reveal">
+                        <h3>Machine learning for CMS</h3>
+                        <p>
+                            Earlier Brown-based work applied machine learning to CMS jet calibration, giving the site a clear
+                            bridge between collider physics and practical analysis tooling.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Brown</span>
+                            <span class="tag">CMS</span>
+                            <span class="tag">ML</span>
+                        </div>
+                    </article>
 
-    <!-- Publications Section -->
-    <section class="section" id="publications">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Publications</h2>
-                <p class="section-subtitle">
-                    Contributing to the scientific community through peer-reviewed research and innovative findings
-                </p>
-            </div>
-            <div class="publications-grid scroll-reveal">
-                <div class="publication-card">
-                    <div class="publication-year">2025</div>
-                    <h3 class="publication-title">
-                        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/add68f" target="_blank">
-                            The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis
-                        </a>
-                    </h3>
-                    <div class="publication-authors">West, C., Heger, A., Côté, B., Serxner, L., & <strong>Sun, H.</strong></div>
-                    <div class="publication-journal">The Astrophysical Journal, 987(1), 51</div>
-                </div>
-                <div class="publication-card">
-                    <div class="publication-year">2024</div>
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/abs/2403.07250" target="_blank">
-                            Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion
-                        </a>
-                    </h3>
-                    <div class="publication-authors">Hu, Z., Gao, Z., <strong>Sun, H.</strong>, Chen, C., & Yang, X.</div>
-                    <div class="publication-journal">arXiv preprint arXiv:2403.07250</div>
-                </div>
-                <div class="publication-card">
-                    <div class="publication-year">2023</div>
-                    <h3 class="publication-title">
-                        <a href="https://arxiv.org/abs/2403.02678" target="_blank">
-                            Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances
-                        </a>
-                    </h3>
-                    <div class="publication-authors"><strong>Sun, Haoxuan</strong></div>
-                    <div class="publication-journal">Macalester Journal of Physics and Astronomy, Vol. 11: Iss. 1, Article 14</div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <article class="research-card reveal">
+                        <h3>Tianlai survey science</h3>
+                        <p>
+                            Public authorship on the Tianlai-WIYN North Celestial Cap Redshift Survey adds a strong
+                            large-survey data point, tied to low-redshift galaxy catalog work and 21 cm intensity mapping.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">Tianlai</span>
+                            <span class="tag">Redshift survey</span>
+                            <span class="tag">astro-ph</span>
+                        </div>
+                    </article>
 
-    <!-- Skills Section -->
-    <section class="section skills" id="skills">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <p class="section-subtitle">
-                    Comprehensive technical skills spanning programming, research tools, and scientific computing
-                </p>
-            </div>
-            <div class="skills-grid scroll-reveal">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code skill-icon"></i>Programming Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Python</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                            <span class="skill-percentage">95%</span>
+                    <article class="research-card reveal">
+                        <h3>Stellar evolution and nucleosynthesis</h3>
+                        <p>
+                            The ApJ paper on initial composition in massive stars and the earlier solo isotopic-abundance work
+                            show sustained interest in chemical evolution and computational astrophysics.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">ApJ</span>
+                            <span class="tag">nucleosynthesis</span>
+                            <span class="tag">computational astrophysics</span>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Java</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">R</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 75%"></div>
-                            </div>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-microscope skill-icon"></i>Research Tools</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Machine Learning</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">ROOT/PyROOT</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">HEP Software Frameworks</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 80%"></div>
-                            </div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">LaTeX</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-globe skill-icon"></i>Languages</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Mandarin</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 100%"></div>
-                            </div>
-                            <span class="skill-percentage">Native</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">English</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                            <span class="skill-percentage">Fluent</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Spanish</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">Fluent</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-star skill-icon"></i>Specializations</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <span class="skill-name">High Energy Physics</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 95%"></div>
-                            </div>
-                            <span class="skill-percentage">95%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">ATLAS & CMS Experiments</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Higgs Physics</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 85%"></div>
-                            </div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Particle Data Analysis</span>
-                            <div class="skill-level">
-                                <div class="skill-progress" style="width: 90%"></div>
-                            </div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    </article>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <div class="section-container">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">Let's Connect</h2>
-                <p class="section-subtitle">
-                    Ready to collaborate on cutting-edge research or discuss innovative ideas in high energy physics and ML
-                </p>
-            </div>
-            <div class="contact-grid scroll-reveal">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                    <article class="research-card reveal">
+                        <h3>Cosmology with Gauss-Bonnet torsion</h3>
+                        <p>
+                            The 2024 preprint on renormalizable cosmology highlights a theory-facing thread that complements
+                            the experimental and data-analysis side of the profile.
+                        </p>
+                        <div class="tag-row">
+                            <span class="tag">gr-qc</span>
+                            <span class="tag">Gauss-Bonnet</span>
+                            <span class="tag">torsion</span>
                         </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>haoxuansun0616@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>612-963-1028</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Google Scholar</h4>
-                            <p><a href="https://scholar.google.com/citations?hl=en&user=hYP0soIAAAAJ" target="_blank">Research Publications</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-gitlab"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>GitLab</h4>
-                            <p><a href="https://gitlab.com/haoxuan_sun/" target="_blank">Open Source Projects</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem; color: var(--text-primary);">Send a Message</h3>
-                    
-                    <div id="statusMessage" class="status-message">
-                        <i class="fas fa-check-circle"></i>
-                        <span id="statusText"></span>
-                    </div>
-                    
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label class="form-label">Name</label>
-                            <input type="text" id="fromName" class="form-input" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Email</label>
-                            <input type="email" id="fromEmail" class="form-input" placeholder="your.email@example.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Subject</label>
-                            <input type="text" id="subject" class="form-input" placeholder="Research collaboration, etc." required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea id="message" class="form-input form-textarea" placeholder="Your message..." required></textarea>
-                        </div>
-                        <button type="submit" id="submitBtn" class="btn btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            <span id="submitText">Send Message</span>
-                        </button>
-                    </form>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
+        <section class="section" id="publications">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">Publications</p>
+                        <h2>Public record as of April 8, 2026</h2>
+                    </div>
+                    <p>
+                        Ordered by recency across Google Scholar and INSPIRE-HEP, with direct links to journal pages,
+                        arXiv entries, and profile records where available.
+                    </p>
+                </div>
+
+                <div class="publication-list">
+                    <article class="publication reveal">
+                        <div class="publication-top">
+                            <h3>The Tianlai-WIYN North Celestial Cap Redshift Survey</h3>
+                            <span class="publication-year">2025</span>
+                        </div>
+                        <p class="publication-authors">
+                            Reza Ansari, Gabriela A. Marques, John P. Marriner, Olivier Perdereau, Elena Pinetti, Lily
+                            Robinthal, Albert Stebbins, <strong>Haoxuan Sun</strong>, Peter Timbie, Gregory S. Tucker, Eli Doyle,
+                            Jocelyn Chu, E. Revsen Karaalp, Xuelei Chen, Jixia Li, and Fengquan Wu
+                        </p>
+                        <p class="publication-venue">arXiv:2512.23899</p>
+                        <p class="publication-note">
+                            Listed on both Google Scholar and INSPIRE-HEP. The arXiv record shows submission on December 29,
+                            2025 and revision on January 7, 2026.
+                        </p>
+                        <div class="link-row">
+                            <a class="link-pill" href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a class="link-pill" href="https://inspirehep.net/literature/3096626" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
+                            <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        </div>
+                    </article>
+
+                    <article class="publication reveal">
+                        <div class="publication-top">
+                            <h3>The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis</h3>
+                            <span class="publication-year">2025</span>
+                        </div>
+                        <p class="publication-authors">
+                            Christopher West, Alexander Heger, Benoit Cote, Lev Serxner, and <strong>Haoxuan Sun</strong>
+                        </p>
+                        <p class="publication-venue">The Astrophysical Journal 987 (1), 2025 / arXiv:2410.16594</p>
+                        <p class="publication-note">
+                            Present on Google Scholar and INSPIRE-HEP, with the journal publication replacing the older
+                            preprint-only presentation from the original site.
+                        </p>
+                        <div class="link-row">
+                            <a class="link-pill" href="https://iopscience.iop.org/article/10.3847/1538-4357/add68f" target="_blank" rel="noopener noreferrer">Journal</a>
+                            <a class="link-pill" href="https://arxiv.org/abs/2410.16594" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a class="link-pill" href="https://inspirehep.net/literature?q=arxiv:2410.16594" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
+                            <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        </div>
+                    </article>
+
+                    <article class="publication reveal">
+                        <div class="publication-top">
+                            <h3>Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion</h3>
+                            <span class="publication-year">2024</span>
+                        </div>
+                        <p class="publication-authors">
+                            Zirui Hu, Zhifu Gao, <strong>Haoxuan Sun</strong>, Cixing Chen, and Xiaofeng Yang
+                        </p>
+                        <p class="publication-venue">arXiv:2403.07250</p>
+                        <p class="publication-note">
+                            Publicly indexed in both Google Scholar and INSPIRE-HEP. This gives the site a theory-side
+                            publication alongside the experiment-heavy profile.
+                        </p>
+                        <div class="link-row">
+                            <a class="link-pill" href="https://arxiv.org/abs/2403.07250" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a class="link-pill" href="https://inspirehep.net/literature?q=arxiv:2403.07250" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
+                            <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        </div>
+                    </article>
+
+                    <article class="publication reveal">
+                        <div class="publication-top">
+                            <h3>Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances</h3>
+                            <span class="publication-year">2023</span>
+                        </div>
+                        <p class="publication-authors"><strong>Haoxuan Sun</strong></p>
+                        <p class="publication-venue">Macalester Journal of Physics and Astronomy 11 (1), Article 14 / arXiv:2403.02678</p>
+                        <p class="publication-note">
+                            Kept from the original site, but now framed as the earliest public paper in a broader publication
+                            arc rather than an isolated student project.
+                        </p>
+                        <div class="link-row">
+                            <a class="link-pill" href="https://arxiv.org/abs/2403.02678" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="journey">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">Journey</p>
+                        <h2>Academic path across three institutions</h2>
+                    </div>
+                    <p>
+                        The timeline now reads like an academic biography rather than a generic resume block, and it
+                        reflects the current HKUST position explicitly.
+                    </p>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">2025 - present</div>
+                        <div class="timeline-body">
+                            <h3>PhD in Physics, Hong Kong University of Science and Technology</h3>
+                            <p>
+                                Current institutional home. HKUST publicly lists the PhD year as 2025 and names Kirill
+                                Prokofiev as thesis supervisor. Earlier site content also notes HKPFS and Redbird support.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">2023 - 2025</div>
+                        <div class="timeline-body">
+                            <h3>M.S. in Physics, Brown University</h3>
+                            <p>
+                                Brown remains the verified Google Scholar affiliation and anchors the machine-learning and
+                                collider-analysis phase that feeds directly into the current research identity.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-date">2019 - 2023</div>
+                        <div class="timeline-body">
+                            <h3>B.A. in Physics and Mathematics, Macalester College</h3>
+                            <p>
+                                Undergraduate training in physics and mathematics, with the solo isotopic-abundance paper and
+                                scholarship history giving the site stronger early-career depth.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">Contact</p>
+                        <h2>Clean, academic contact points</h2>
+                    </div>
+                    <p>
+                        The placeholder social links and exposed phone number are gone. The contact section now emphasizes
+                        the channels most useful for research conversations.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <article class="contact-card reveal">
+                        <h3>Primary email</h3>
+                        <p><a href="mailto:hsunbl@connect.ust.hk">hsunbl@connect.ust.hk</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>Secondary email</h3>
+                        <p><a href="mailto:haoxuansun0616@gmail.com">haoxuansun0616@gmail.com</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>Google Scholar</h3>
+                        <p><a href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">View publication profile</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>Curriculum Vitae</h3>
+                        <p><a href="Haoxuan_Sun_CV.pdf" download>Download PDF</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>INSPIRE-HEP</h3>
+                        <p><a href="https://inspirehep.net/authors/2957887" target="_blank" rel="noopener noreferrer">View author record</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>ORCID</h3>
+                        <p><a href="https://orcid.org/0009-0007-5390-7852" target="_blank" rel="noopener noreferrer">0009-0007-5390-7852</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>HKUST directory</h3>
+                        <p><a href="https://physics.hkust.edu.hk/people/sun-haoxuan" target="_blank" rel="noopener noreferrer">Current institutional profile</a></p>
+                    </article>
+
+                    <article class="contact-card reveal">
+                        <h3>GitLab</h3>
+                        <p><a href="https://gitlab.com/haoxuan_sun/" target="_blank" rel="noopener noreferrer">Open projects and code</a></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        <div class="footer-content">
-            <div class="social-links">
-                <a href="mailto:haoxuansun0616@gmail.com" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://scholar.google.com/citations?hl=en&user=hYP0soIAAAAJ" class="social-link" target="_blank">
-                    <i class="fas fa-graduation-cap"></i>
-                </a>
-                <a href="https://gitlab.com/haoxuan_sun/" class="social-link" target="_blank">
-                    <i class="fab fa-gitlab"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" class="social-link">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </div>
-            <p style="color: var(--text-muted);">
-                &copy; 2025 Haoxuan Sun. Crafted with passion for physics and innovation.
-            </p>
+        <div class="footer-box">
+            <strong>Last refreshed:</strong> April 8, 2026.
+            This page uses public information from
+            <a href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>,
+            <a href="https://inspirehep.net/authors/2957887" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>,
+            <a href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv</a>,
+            and the
+            <a href="https://physics.hkust.edu.hk/people/sun-haoxuan" target="_blank" rel="noopener noreferrer">HKUST Physics directory</a>.
         </div>
     </footer>
 
     <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init('9HYHs4wrXFLmfmyckQV4m');
-        })();
+        const sectionLinks = [...document.querySelectorAll(".nav a")];
+        const sections = sectionLinks
+            .map((link) => document.querySelector(link.getAttribute("href")))
+            .filter(Boolean);
 
-        // Loading screen
-        window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loadingScreen');
-            setTimeout(() => {
-                loadingScreen.style.opacity = '0';
-                setTimeout(() => {
-                    loadingScreen.style.display = 'none';
-                }, 500);
-            }, 1000);
-        });
+        const navObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
 
-        // Profile image handling
-        function handleImageUpload() {
-            const input = document.createElement('input');
-            input.type = 'file';
-            input.accept = 'image/*';
-            input.onchange = function(event) {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        const profileAvatar = document.getElementById('profileAvatar');
-                        profileAvatar.innerHTML = `<img src="${e.target.result}" alt="Haoxuan Sun" />`;
-                        // Store in localStorage for persistence
-                        localStorage.setItem('profileImage', e.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            };
-            input.click();
-        }
-
-        // Load saved profile image
-        function loadProfileImage() {
-            const savedImage = localStorage.getItem('profileImage');
-            if (savedImage) {
-                const profileAvatar = document.getElementById('profileAvatar');
-                profileAvatar.innerHTML = `<img src="${savedImage}" alt="Haoxuan Sun" />`;
-            }
-        }
-
-        // Add click event to profile avatar for image upload
-        document.getElementById('profileAvatar').addEventListener('click', handleImageUpload);
-        document.getElementById('profileAvatar').style.cursor = 'pointer';
-        document.getElementById('profileAvatar').title = 'Click to upload your photo';
-
-        // Load profile image on page load
-        loadProfileImage();
-
-        // Email form handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submitBtn');
-            const submitText = document.getElementById('submitText');
-            const statusMessage = document.getElementById('statusMessage');
-            const statusText = document.getElementById('statusText');
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            submitText.textContent = 'Sending...';
-            statusMessage.classList.remove('show', 'success', 'error');
-            
-            // Prepare email parameters
-            const templateParams = {
-                from_name: document.getElementById('fromName').value,
-                from_email: document.getElementById('fromEmail').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value,
-                to_name: 'Haoxuan Sun'
-            };
-            
-            // Send email using EmailJS
-            emailjs.send('service_6fkhshg', 'template_m5p5jdb', templateParams)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    
-                    // Show success message
-                    statusMessage.className = 'status-message success show';
-                    statusMessage.innerHTML = '<i class="fas fa-check-circle"></i><span>Message sent successfully! I\'ll get back to you soon.</span>';
-                    
-                    // Reset form
-                    document.getElementById('contactForm').reset();
-                }, function(error) {
-                    console.log('FAILED...', error);
-                    
-                    // Show error message
-                    statusMessage.className = 'status-message error show';
-                    statusMessage.innerHTML = '<i class="fas fa-exclamation-circle"></i><span>Failed to send message. Please try again or email me directly.</span>';
-                })
-                .finally(function() {
-                    // Reset button state
-                    submitBtn.disabled = false;
-                    submitText.textContent = 'Send Message';
-                    
-                    // Hide status message after 5 seconds
-                    setTimeout(() => {
-                        statusMessage.classList.remove('show');
-                    }, 5000);
+                    sectionLinks.forEach((link) => {
+                        link.classList.toggle(
+                            "is-current",
+                            link.getAttribute("href") === `#${entry.target.id}`
+                        );
+                    });
                 });
-        });
-
-        // Animated background particles
-        function createParticles() {
-            const bg = document.getElementById('animatedBg');
-            
-            for (let i = 0; i < 20; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = Math.random() * 100 + '%';
-                    particle.style.width = particle.style.height = Math.random() * 4 + 2 + 'px';
-                    particle.style.animationDuration = Math.random() * 10 + 15 + 's';
-                    particle.style.animationDelay = Math.random() * 2 + 's';
-                    bg.appendChild(particle);
-
-                    setTimeout(() => {
-                        if (particle.parentNode) {
-                            particle.parentNode.removeChild(particle);
-                        }
-                    }, 25000);
-                }, i * 500);
+            },
+            {
+                threshold: 0.45,
+                rootMargin: "-10% 0px -45% 0px"
             }
-        }
+        );
 
-        setInterval(createParticles, 5000);
-        createParticles();
-
-        // Theme toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-
-        themeToggle.addEventListener('click', () => {
-            const isLight = body.getAttribute('data-theme') === 'light';
-            
-            if (isLight) {
-                body.removeAttribute('data-theme');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                body.setAttribute('data-theme', 'light');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-
-        // Load saved theme
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.setAttribute('data-theme', 'light');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Active navigation
-        const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('.section, .hero');
-
-        function updateActiveNav() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveNav);
-
-        // Scroll reveal animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Animate skill bars when in view
-        const skillObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillBars = entry.target.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        const width = bar.style.width;
-                        bar.style.width = '0%';
-                        setTimeout(() => {
-                            bar.style.width = width;
-                        }, 200);
-                    });
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.skills-grid').forEach(el => {
-            skillObserver.observe(el);
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = body.getAttribute('data-theme') === 'light' 
-                    ? 'rgba(255, 255, 255, 0.95)' 
-                    : 'rgba(15, 15, 35, 0.95)';
-            } else {
-                navbar.style.background = body.getAttribute('data-theme') === 'light' 
-                    ? 'rgba(255, 255, 255, 0.8)' 
-                    : 'rgba(15, 15, 35, 0.8)';
-            }
-        });
-
-        // Easter egg: Konami code
-        let konamiCode = [];
-        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
-        
-        document.addEventListener('keydown', function(e) {
-            konamiCode.push(e.keyCode);
-            if (konamiCode.length > konamiSequence.length) {
-                konamiCode.shift();
-            }
-            
-            if (konamiCode.length === konamiSequence.length && 
-                konamiCode.every((val, i) => val === konamiSequence[i])) {
-                // Easter egg: temporary party mode
-                document.body.style.animation = 'rainbow 2s infinite';
-                setTimeout(() => {
-                    document.body.style.animation = '';
-                }, 5000);
-            }
-        });
-
-        // Add rainbow animation for easter egg
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes rainbow {
-                0% { filter: hue-rotate(0deg); }
-                100% { filter: hue-rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
+        sections.forEach((section) => navObserver.observe(section));
     </script>
 </body>
 </html>
