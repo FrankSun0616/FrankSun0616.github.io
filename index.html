@@ -16,25 +16,45 @@
     >
     <style>
         :root {
-            --ink-strong: #13233f;
-            --ink: #203452;
-            --muted: #5a6981;
-            --paper: #f7f3ea;
-            --paper-strong: #fffdf7;
-            --surface: rgba(255, 253, 247, 0.8);
-            --surface-strong: rgba(255, 255, 255, 0.92);
-            --line: rgba(19, 35, 63, 0.12);
-            --line-strong: rgba(19, 35, 63, 0.22);
-            --accent: #bb6a30;
-            --accent-soft: rgba(187, 106, 48, 0.12);
-            --accent-cool: #0d766e;
-            --accent-cool-soft: rgba(13, 118, 110, 0.12);
-            --shadow: 0 24px 60px rgba(19, 35, 63, 0.12);
-            --shadow-soft: 0 16px 40px rgba(19, 35, 63, 0.08);
-            --radius-lg: 32px;
-            --radius-md: 20px;
-            --radius-sm: 14px;
+            --ink-strong: #161b2e;
+            --ink: #29334a;
+            --muted: #647086;
+            --paper: #f6f8fb;
+            --paper-strong: #ffffff;
+            --surface: rgba(255, 255, 255, 0.82);
+            --surface-strong: rgba(255, 255, 255, 0.96);
+            --line: rgba(22, 27, 46, 0.12);
+            --line-strong: rgba(22, 27, 46, 0.22);
+            --accent: #a91d55;
+            --accent-soft: rgba(169, 29, 85, 0.12);
+            --accent-cool: #00796b;
+            --accent-cool-soft: rgba(0, 121, 107, 0.12);
+            --focus: rgba(0, 121, 107, 0.26);
+            --shadow: 0 24px 60px rgba(22, 27, 46, 0.12);
+            --shadow-soft: 0 16px 40px rgba(22, 27, 46, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 8px;
+            --radius-sm: 6px;
             --frame: min(1180px, calc(100vw - 2rem));
+        }
+
+        [data-theme="dark"] {
+            --ink-strong: #f8fafc;
+            --ink: #d9e1ee;
+            --muted: #a7b3c5;
+            --paper: #111827;
+            --paper-strong: #192234;
+            --surface: rgba(25, 34, 52, 0.84);
+            --surface-strong: rgba(25, 34, 52, 0.96);
+            --line: rgba(248, 250, 252, 0.14);
+            --line-strong: rgba(248, 250, 252, 0.24);
+            --accent: #f06292;
+            --accent-soft: rgba(240, 98, 146, 0.14);
+            --accent-cool: #5eead4;
+            --accent-cool-soft: rgba(94, 234, 212, 0.12);
+            --focus: rgba(94, 234, 212, 0.28);
+            --shadow: 0 24px 60px rgba(0, 0, 0, 0.36);
+            --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.28);
         }
 
         * {
@@ -50,11 +70,18 @@
             font-family: "IBM Plex Sans", sans-serif;
             color: var(--ink);
             background:
-                radial-gradient(circle at 12% 12%, rgba(13, 118, 110, 0.1), transparent 28%),
-                radial-gradient(circle at 88% 10%, rgba(187, 106, 48, 0.13), transparent 24%),
-                radial-gradient(circle at 84% 82%, rgba(13, 118, 110, 0.08), transparent 20%),
-                linear-gradient(180deg, #fcfaf5 0%, #f7f3ea 52%, #eef3f4 100%);
+                linear-gradient(115deg, rgba(0, 121, 107, 0.08), transparent 34%),
+                linear-gradient(245deg, rgba(169, 29, 85, 0.08), transparent 32%),
+                linear-gradient(180deg, #ffffff 0%, var(--paper) 48%, #eef4f7 100%);
             line-height: 1.65;
+        }
+
+        [data-theme="dark"] body,
+        body[data-theme="dark"] {
+            background:
+                linear-gradient(115deg, rgba(94, 234, 212, 0.08), transparent 34%),
+                linear-gradient(245deg, rgba(240, 98, 146, 0.08), transparent 32%),
+                linear-gradient(180deg, #0f172a 0%, #111827 56%, #172033 100%);
         }
 
         body::before {
@@ -69,6 +96,18 @@
             mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), transparent 80%);
         }
 
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 40;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cool), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left center;
+        }
+
         a {
             color: inherit;
         }
@@ -79,7 +118,7 @@
         }
 
         ::selection {
-            background: rgba(187, 106, 48, 0.22);
+            background: var(--accent-cool-soft);
         }
 
         .frame {
@@ -112,7 +151,7 @@
             font-family: "Fraunces", serif;
             font-size: 1.35rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: 0;
             white-space: nowrap;
         }
 
@@ -146,6 +185,52 @@
             background: rgba(255, 255, 255, 0.7);
         }
 
+        [data-theme="dark"] .nav a:hover,
+        [data-theme="dark"] .nav a.is-current {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .utility-button,
+        .copy-button,
+        .filter-button {
+            border: 1px solid var(--line);
+            background: var(--surface-strong);
+            color: var(--ink-strong);
+            cursor: pointer;
+            font: inherit;
+            font-weight: 600;
+            transition: border-color 180ms ease, background 180ms ease, color 180ms ease, transform 180ms ease;
+        }
+
+        .utility-button {
+            min-width: 2.55rem;
+            height: 2.55rem;
+            border-radius: 999px;
+            padding: 0 0.85rem;
+        }
+
+        .utility-button:hover,
+        .copy-button:hover,
+        .filter-button:hover {
+            border-color: var(--line-strong);
+            transform: translateY(-1px);
+        }
+
+        .utility-button:focus-visible,
+        .copy-button:focus-visible,
+        .filter-button:focus-visible,
+        .search-field:focus-visible,
+        .command-search:focus-visible {
+            outline: 3px solid var(--focus);
+            outline-offset: 2px;
+        }
+
         .section {
             padding: 5.5rem 0;
             scroll-margin-top: 5.5rem;
@@ -177,7 +262,7 @@
             font-family: "Fraunces", serif;
             font-size: clamp(2rem, 4vw, 3.3rem);
             line-height: 1.04;
-            letter-spacing: -0.04em;
+            letter-spacing: 0;
             color: var(--ink-strong);
         }
 
@@ -220,23 +305,12 @@
             overflow: hidden;
         }
 
-        .hero-copy::before {
-            content: "";
-            position: absolute;
-            inset: auto -15% -35% auto;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(187, 106, 48, 0.24), transparent 70%);
-            pointer-events: none;
-        }
-
         .hero h1 {
             margin: 0;
             font-family: "Fraunces", serif;
             font-size: clamp(3rem, 7vw, 5.8rem);
             line-height: 0.94;
-            letter-spacing: -0.055em;
+            letter-spacing: 0;
             color: var(--ink-strong);
             max-width: 10ch;
         }
@@ -273,8 +347,8 @@
 
         .btn-primary {
             color: #fff;
-            background: linear-gradient(135deg, #9d5525 0%, #c97738 100%);
-            box-shadow: 0 14px 30px rgba(187, 106, 48, 0.25);
+            background: linear-gradient(135deg, var(--accent-cool) 0%, var(--accent) 100%);
+            box-shadow: 0 14px 30px rgba(0, 121, 107, 0.2);
         }
 
         .btn-secondary {
@@ -303,7 +377,7 @@
             overflow: hidden;
             min-height: 420px;
             background:
-                linear-gradient(160deg, rgba(13, 118, 110, 0.12), rgba(187, 106, 48, 0.14)),
+                linear-gradient(160deg, var(--accent-cool-soft), var(--accent-soft)),
                 var(--paper-strong);
         }
 
@@ -529,9 +603,56 @@
             gap: 1rem;
         }
 
+        .publication-tools {
+            display: grid;
+            grid-template-columns: minmax(240px, 1fr) auto;
+            gap: 1rem;
+            align-items: center;
+            margin: -0.75rem 0 1.5rem;
+        }
+
+        .search-field {
+            width: 100%;
+            min-height: 3rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--surface-strong);
+            color: var(--ink-strong);
+            font: inherit;
+            padding: 0.85rem 1rem;
+        }
+
+        .search-field::placeholder,
+        .command-search::placeholder {
+            color: var(--muted);
+        }
+
+        .filter-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+
+        .filter-button {
+            min-height: 2.7rem;
+            border-radius: 999px;
+            padding: 0 0.95rem;
+        }
+
+        .filter-button.is-active {
+            background: var(--ink-strong);
+            border-color: var(--ink-strong);
+            color: var(--paper-strong);
+        }
+
         .publication {
             border-radius: var(--radius-lg);
             padding: 1.45rem;
+        }
+
+        .publication.is-hidden {
+            display: none;
         }
 
         .publication-top {
@@ -602,6 +723,29 @@
 
         .link-pill:hover {
             background: rgba(255, 255, 255, 0.96);
+        }
+
+        [data-theme="dark"] .link-pill:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .copy-button {
+            min-height: 2.75rem;
+            border-radius: 999px;
+            padding: 0 0.95rem;
+        }
+
+        .empty-state {
+            display: none;
+            border: 1px dashed var(--line-strong);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            color: var(--muted);
+            background: var(--surface);
+        }
+
+        .empty-state.is-visible {
+            display: block;
         }
 
         .timeline {
@@ -688,11 +832,131 @@
             transform: none;
         }
 
+        .toast {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 50;
+            max-width: min(340px, calc(100vw - 2rem));
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--ink-strong);
+            color: var(--paper-strong);
+            box-shadow: var(--shadow);
+            padding: 0.85rem 1rem;
+            opacity: 0;
+            transform: translateY(12px);
+            pointer-events: none;
+            transition: opacity 180ms ease, transform 180ms ease;
+        }
+
+        .toast.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .command-palette {
+            position: fixed;
+            inset: 0;
+            z-index: 60;
+            display: none;
+            padding: min(10vh, 5rem) 1rem 1rem;
+            background: rgba(15, 23, 42, 0.36);
+            backdrop-filter: blur(12px);
+        }
+
+        .command-palette.is-open {
+            display: block;
+        }
+
+        .command-dialog {
+            width: min(680px, 100%);
+            margin: 0 auto;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background: var(--surface-strong);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .command-head {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .command-search {
+            flex: 1;
+            border: 0;
+            background: transparent;
+            color: var(--ink-strong);
+            font: inherit;
+            font-size: 1.05rem;
+        }
+
+        .command-search:focus {
+            outline: 0;
+        }
+
+        .command-close {
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            font: inherit;
+            padding: 0.35rem 0.75rem;
+        }
+
+        .command-list {
+            max-height: min(62vh, 520px);
+            overflow: auto;
+            padding: 0.5rem;
+        }
+
+        .command-item {
+            display: grid;
+            gap: 0.1rem;
+            width: 100%;
+            border: 0;
+            border-radius: var(--radius-md);
+            background: transparent;
+            color: var(--ink);
+            cursor: pointer;
+            font: inherit;
+            padding: 0.85rem 0.95rem;
+            text-align: left;
+        }
+
+        .command-item:hover,
+        .command-item.is-selected {
+            background: var(--accent-cool-soft);
+        }
+
+        .command-item strong {
+            color: var(--ink-strong);
+        }
+
+        .command-item span {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
         @media (max-width: 980px) {
             .hero-grid,
             .about-layout,
             .section-head {
                 grid-template-columns: 1fr;
+            }
+
+            .publication-tools {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-tabs {
+                justify-content: flex-start;
             }
 
             .source-grid {
@@ -720,6 +984,22 @@
             .topbar-inner {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .topbar-actions {
+                position: absolute;
+                top: 0.85rem;
+                right: 1rem;
+            }
+
+            .utility-button {
+                min-width: 2.35rem;
+                height: 2.35rem;
+                padding: 0 0.65rem;
+            }
+
+            .utility-label {
+                display: none;
             }
 
             .nav {
@@ -754,6 +1034,8 @@
     </style>
 </head>
 <body>
+    <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+
     <header class="topbar">
         <div class="topbar-inner">
             <a class="brand" href="#top">Haoxuan Sun</a>
@@ -764,6 +1046,14 @@
                 <a href="#journey">Journey</a>
                 <a href="#contact">Contact</a>
             </nav>
+            <div class="topbar-actions" aria-label="Site tools">
+                <button class="utility-button" id="commandOpen" type="button" aria-label="Open quick navigation">
+                    <span aria-hidden="true">/</span><span class="utility-label"> Search</span>
+                </button>
+                <button class="utility-button" id="themeToggle" type="button" aria-label="Toggle dark mode" aria-pressed="false">
+                    <span id="themeIcon" aria-hidden="true">D</span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -1023,8 +1313,30 @@
                     </p>
                 </div>
 
+                <div class="publication-tools" aria-label="Publication controls">
+                    <input
+                        class="search-field"
+                        id="publicationSearch"
+                        type="search"
+                        placeholder="Search publications, authors, topics..."
+                        aria-label="Search publications"
+                    >
+                    <div class="filter-tabs" aria-label="Filter publications">
+                        <button class="filter-button is-active" type="button" data-filter="all">All</button>
+                        <button class="filter-button" type="button" data-filter="survey">Survey</button>
+                        <button class="filter-button" type="button" data-filter="astro">Astrophysics</button>
+                        <button class="filter-button" type="button" data-filter="cosmology">Cosmology</button>
+                        <button class="filter-button" type="button" data-filter="ml">Machine Learning</button>
+                    </div>
+                </div>
+
                 <div class="publication-list">
-                    <article class="publication reveal">
+                    <article
+                        class="publication reveal"
+                        data-category="astro survey"
+                        data-search="the tianlai-wiyn north celestial cap redshift survey reza ansari gabriela marques john marriner olivier perdereau elena pinetti lily robinthal albert stebbins haoxuan sun peter timbie gregory tucker redshift survey 21 cm intensity mapping astro"
+                        data-citation="Ansari, R., Marques, G. A., Marriner, J. P., Perdereau, O., Pinetti, E., Robinthal, L., Stebbins, A., Sun, H., Timbie, P., Tucker, G. S., Doyle, E., Chu, J., Karaalp, E. R., Chen, X., Li, J., &amp; Wu, F. (2025). The Tianlai-WIYN North Celestial Cap Redshift Survey. arXiv:2512.23899."
+                    >
                         <div class="publication-top">
                             <h3>The Tianlai-WIYN North Celestial Cap Redshift Survey</h3>
                             <span class="publication-year">2025</span>
@@ -1042,10 +1354,16 @@
                             <a class="link-pill" href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://inspirehep.net/literature/3096626" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
                             <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                            <button class="copy-button" type="button">Copy citation</button>
                         </div>
                     </article>
 
-                    <article class="publication reveal">
+                    <article
+                        class="publication reveal"
+                        data-category="astro ml"
+                        data-search="the impact of initial composition on massive star evolution and nucleosynthesis christopher west alexander heger benoit cote lev serxner haoxuan sun astrophysical journal stellar evolution nucleosynthesis machine learning"
+                        data-citation="West, C., Heger, A., Cote, B., Serxner, L., &amp; Sun, H. (2025). The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis. The Astrophysical Journal, 987(1). arXiv:2410.16594."
+                    >
                         <div class="publication-top">
                             <h3>The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis</h3>
                             <span class="publication-year">2025</span>
@@ -1062,10 +1380,16 @@
                             <a class="link-pill" href="https://arxiv.org/abs/2410.16594" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://inspirehep.net/literature?q=arxiv:2410.16594" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
                             <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                            <button class="copy-button" type="button">Copy citation</button>
                         </div>
                     </article>
 
-                    <article class="publication reveal">
+                    <article
+                        class="publication reveal"
+                        data-category="cosmology"
+                        data-search="renormalizable cosmology based on gauss-bonnet theory with torsion zirui hu zhifu gao haoxuan sun cixing chen xiaofeng yang cosmology gauss-bonnet torsion gr-qc"
+                        data-citation="Hu, Z., Gao, Z., Sun, H., Chen, C., &amp; Yang, X. (2024). Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion. arXiv:2403.07250."
+                    >
                         <div class="publication-top">
                             <h3>Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion</h3>
                             <span class="publication-year">2024</span>
@@ -1081,10 +1405,16 @@
                             <a class="link-pill" href="https://arxiv.org/abs/2403.07250" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://inspirehep.net/literature?q=arxiv:2403.07250" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
                             <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                            <button class="copy-button" type="button">Copy citation</button>
                         </div>
                     </article>
 
-                    <article class="publication reveal">
+                    <article
+                        class="publication reveal"
+                        data-category="astro ml"
+                        data-search="machine learning refinements to metallicity-dependent isotopic abundances haoxuan sun macalester journal physics astronomy isotopic abundances metallicity nucleosynthesis machine learning"
+                        data-citation="Sun, H. (2023). Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances. Macalester Journal of Physics and Astronomy, 11(1), Article 14. arXiv:2403.02678."
+                    >
                         <div class="publication-top">
                             <h3>Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances</h3>
                             <span class="publication-year">2023</span>
@@ -1097,8 +1427,11 @@
                         <div class="link-row">
                             <a class="link-pill" href="https://arxiv.org/abs/2403.02678" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+                            <button class="copy-button" type="button">Copy citation</button>
                         </div>
                     </article>
+
+                    <p class="empty-state" id="publicationEmpty">No publications match the current search.</p>
                 </div>
             </div>
         </section>
@@ -1214,11 +1547,202 @@
         </div>
     </footer>
 
+    <div class="command-palette" id="commandPalette" role="dialog" aria-modal="true" aria-label="Quick navigation">
+        <div class="command-dialog">
+            <div class="command-head">
+                <input class="command-search" id="commandSearch" type="search" placeholder="Jump to a section or link..." aria-label="Search quick navigation">
+                <button class="command-close" id="commandClose" type="button">Esc</button>
+            </div>
+            <div class="command-list" id="commandList"></div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
     <script>
+        const root = document.documentElement;
+        const progressBar = document.getElementById("progressBar");
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+        const publicationSearch = document.getElementById("publicationSearch");
+        const publicationCards = [...document.querySelectorAll(".publication")];
+        const filterButtons = [...document.querySelectorAll(".filter-button")];
+        const publicationEmpty = document.getElementById("publicationEmpty");
+        const toast = document.getElementById("toast");
+        const commandOpen = document.getElementById("commandOpen");
+        const commandPalette = document.getElementById("commandPalette");
+        const commandSearch = document.getElementById("commandSearch");
+        const commandList = document.getElementById("commandList");
+        const commandClose = document.getElementById("commandClose");
         const sectionLinks = [...document.querySelectorAll(".nav a")];
         const sections = sectionLinks
             .map((link) => document.querySelector(link.getAttribute("href")))
             .filter(Boolean);
+        let activeFilter = "all";
+        let toastTimer;
+
+        const showToast = (message) => {
+            clearTimeout(toastTimer);
+            toast.textContent = message;
+            toast.classList.add("is-visible");
+            toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2200);
+        };
+
+        const updateProgress = () => {
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+            progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, progress))})`;
+        };
+
+        const applyTheme = (theme) => {
+            root.dataset.theme = theme;
+            themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+            themeIcon.textContent = theme === "dark" ? "L" : "D";
+            localStorage.setItem("theme", theme);
+        };
+
+        const storedTheme = localStorage.getItem("theme");
+        const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        applyTheme(storedTheme || preferredTheme);
+
+        themeToggle.addEventListener("click", () => {
+            applyTheme(root.dataset.theme === "dark" ? "light" : "dark");
+        });
+
+        const updatePublicationResults = () => {
+            const query = publicationSearch.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            publicationCards.forEach((card) => {
+                const categories = card.dataset.category.split(" ");
+                const matchesFilter = activeFilter === "all" || categories.includes(activeFilter);
+                const matchesSearch = !query || card.dataset.search.includes(query);
+                const isVisible = matchesFilter && matchesSearch;
+
+                card.classList.toggle("is-hidden", !isVisible);
+                if (isVisible) {
+                    visibleCount += 1;
+                }
+            });
+
+            publicationEmpty.classList.toggle("is-visible", visibleCount === 0);
+        };
+
+        publicationSearch.addEventListener("input", updatePublicationResults);
+
+        filterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                activeFilter = button.dataset.filter;
+                filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+                updatePublicationResults();
+            });
+        });
+
+        document.querySelectorAll(".copy-button").forEach((button) => {
+            button.addEventListener("click", async () => {
+                const citation = button.closest(".publication").dataset.citation;
+
+                try {
+                    await navigator.clipboard.writeText(citation);
+                } catch {
+                    const field = document.createElement("textarea");
+                    field.value = citation;
+                    field.setAttribute("readonly", "");
+                    field.style.position = "fixed";
+                    field.style.opacity = "0";
+                    document.body.appendChild(field);
+                    field.select();
+                    document.execCommand("copy");
+                    field.remove();
+                }
+
+                showToast("Citation copied");
+            });
+        });
+
+        const commandItems = [
+            { label: "Biography", detail: "About and current position", target: "#about" },
+            { label: "Research", detail: "Research interests and experience", target: "#research" },
+            { label: "Publications", detail: "Search and filter publications", target: "#publications" },
+            { label: "Academic Training", detail: "Education timeline", target: "#journey" },
+            { label: "Contact", detail: "Email and academic links", target: "#contact" },
+            { label: "Download CV", detail: "PDF curriculum vitae", target: "Haoxuan_Sun_CV.pdf" },
+            { label: "Google Scholar", detail: "Publication profile", target: "https://scholar.google.com/citations?hl=en&user=hYP0soIAAAAJ" },
+            { label: "INSPIRE-HEP", detail: "Author record", target: "https://inspirehep.net/authors/2957887" },
+            { label: "ORCID", detail: "Researcher identifier", target: "https://orcid.org/0009-0007-5390-7852" }
+        ];
+
+        const renderCommands = () => {
+            const query = commandSearch.value.trim().toLowerCase();
+            const matches = commandItems.filter((item) =>
+                `${item.label} ${item.detail}`.toLowerCase().includes(query)
+            );
+
+            commandList.innerHTML = matches
+                .map((item, index) => `
+                    <button class="command-item${index === 0 ? " is-selected" : ""}" type="button" data-target="${item.target}">
+                        <strong>${item.label}</strong>
+                        <span>${item.detail}</span>
+                    </button>
+                `)
+                .join("");
+        };
+
+        const openCommandPalette = () => {
+            commandPalette.classList.add("is-open");
+            commandSearch.value = "";
+            renderCommands();
+            requestAnimationFrame(() => commandSearch.focus());
+        };
+
+        const closeCommandPalette = () => {
+            commandPalette.classList.remove("is-open");
+            commandOpen.focus();
+        };
+
+        const followCommandTarget = (target) => {
+            closeCommandPalette();
+
+            if (target.startsWith("#")) {
+                document.querySelector(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                return;
+            }
+
+            window.open(target, "_blank", "noopener,noreferrer");
+        };
+
+        commandOpen.addEventListener("click", openCommandPalette);
+        commandClose.addEventListener("click", closeCommandPalette);
+        commandSearch.addEventListener("input", renderCommands);
+        commandList.addEventListener("click", (event) => {
+            const item = event.target.closest(".command-item");
+            if (item) {
+                followCommandTarget(item.dataset.target);
+            }
+        });
+        commandPalette.addEventListener("click", (event) => {
+            if (event.target === commandPalette) {
+                closeCommandPalette();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            const isMacShortcut = event.metaKey && event.key.toLowerCase() === "k";
+            const isSlashShortcut = event.key === "/" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName);
+
+            if (isMacShortcut || isSlashShortcut) {
+                event.preventDefault();
+                openCommandPalette();
+            }
+
+            if (event.key === "Escape" && commandPalette.classList.contains("is-open")) {
+                closeCommandPalette();
+            }
+        });
+
+        window.addEventListener("scroll", updateProgress, { passive: true });
+        window.addEventListener("resize", updateProgress);
+        updateProgress();
 
         const navObserver = new IntersectionObserver(
             (entries) => {
