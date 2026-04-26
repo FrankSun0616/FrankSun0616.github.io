@@ -700,6 +700,75 @@
             color: var(--muted);
         }
 
+        .citation-details {
+            margin-top: 1rem;
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background:
+                linear-gradient(135deg, rgba(0, 121, 107, 0.08), transparent 42%),
+                var(--surface);
+            overflow: hidden;
+        }
+
+        .citation-details summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            cursor: pointer;
+            color: var(--ink-strong);
+            font-weight: 700;
+            list-style: none;
+        }
+
+        .citation-details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .citation-details summary::after {
+            content: "+";
+            display: grid;
+            place-items: center;
+            width: 1.55rem;
+            height: 1.55rem;
+            border-radius: 999px;
+            background: var(--accent-cool-soft);
+            color: var(--accent-cool);
+            font-family: "IBM Plex Mono", monospace;
+            line-height: 1;
+        }
+
+        .citation-details[open] summary::after {
+            content: "-";
+        }
+
+        .citation-list {
+            display: grid;
+            gap: 0.8rem;
+            margin: 0;
+            padding: 0 1rem 1rem 2.2rem;
+        }
+
+        .citation-list li::marker {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .citation-title {
+            color: var(--ink-strong);
+            font-weight: 700;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.18em;
+        }
+
+        .citation-meta {
+            display: block;
+            margin-top: 0.12rem;
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
         .link-row {
             margin-top: 1rem;
             display: flex;
@@ -1094,7 +1163,7 @@
                                 <span>publications listed on Google Scholar</span>
                             </div>
                             <div class="snapshot-item">
-                                <strong>3</strong>
+                                <strong>4</strong>
                                 <span>Google Scholar citations</span>
                             </div>
                             <div class="snapshot-item">
@@ -1334,7 +1403,7 @@
                     <article
                         class="publication reveal"
                         data-category="astro survey"
-                        data-search="the tianlai-wiyn north celestial cap redshift survey reza ansari gabriela marques john marriner olivier perdereau elena pinetti lily robinthal albert stebbins haoxuan sun peter timbie gregory tucker redshift survey 21 cm intensity mapping astro"
+                        data-search="the tianlai-wiyn north celestial cap redshift survey reza ansari gabriela marques john marriner olivier perdereau elena pinetti lily robinthal albert stebbins haoxuan sun peter timbie gregory tucker redshift survey 21 cm intensity mapping astro 21 cm power spectrum analysis north celestial pole observations tianlai dish pathfinder array"
                         data-citation="Ansari, R., Marques, G. A., Marriner, J. P., Perdereau, O., Pinetti, E., Robinthal, L., Stebbins, A., Sun, H., Timbie, P., Tucker, G. S., Doyle, E., Chu, J., Karaalp, E. R., Chen, X., Li, J., &amp; Wu, F. (2025). The Tianlai-WIYN North Celestial Cap Redshift Survey. arXiv:2512.23899."
                     >
                         <div class="publication-top">
@@ -1350,6 +1419,15 @@
                         <p class="publication-note">
                             Preprint.
                         </p>
+                        <details class="citation-details">
+                            <summary>Citing papers</summary>
+                            <ol class="citation-list">
+                                <li>
+                                    <a class="citation-title" href="https://inspirehep.net/literature/3144845" target="_blank" rel="noopener noreferrer">21 cm Power Spectrum Analysis of North Celestial Pole Observations with the Tianlai Dish Pathfinder Array</a>
+                                    <span class="citation-meta">Guangzhi He, Shifan Zuo, Jixia Li, Yichao Li, et al., 2026.</span>
+                                </li>
+                            </ol>
+                        </details>
                         <div class="link-row">
                             <a class="link-pill" href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://inspirehep.net/literature/3096626" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
@@ -1361,7 +1439,7 @@
                     <article
                         class="publication reveal"
                         data-category="astro ml"
-                        data-search="the impact of initial composition on massive star evolution and nucleosynthesis christopher west alexander heger benoit cote lev serxner haoxuan sun astrophysical journal stellar evolution nucleosynthesis machine learning"
+                        data-search="the impact of initial composition on massive star evolution and nucleosynthesis christopher west alexander heger benoit cote lev serxner haoxuan sun astrophysical journal stellar evolution nucleosynthesis machine learning impact of initial mass function chemical evolution high-redshift galaxies"
                         data-citation="West, C., Heger, A., Cote, B., Serxner, L., &amp; Sun, H. (2025). The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis. The Astrophysical Journal, 987(1). arXiv:2410.16594."
                     >
                         <div class="publication-top">
@@ -1375,6 +1453,15 @@
                         <p class="publication-note">
                             Published in <em>The Astrophysical Journal</em>; preprint available on arXiv.
                         </p>
+                        <details class="citation-details">
+                            <summary>Citing papers</summary>
+                            <ol class="citation-list">
+                                <li>
+                                    <a class="citation-title" href="https://inspirehep.net/literature/2931589" target="_blank" rel="noopener noreferrer">Impact of initial mass function on the chemical evolution of high-redshift galaxies</a>
+                                    <span class="citation-meta">Boyuan Liu, Michela Mapelli, Volker Bromm, Ralf S. Klessen, et al., 2025.</span>
+                                </li>
+                            </ol>
+                        </details>
                         <div class="link-row">
                             <a class="link-pill" href="https://iopscience.iop.org/article/10.3847/1538-4357/add68f" target="_blank" rel="noopener noreferrer">Journal</a>
                             <a class="link-pill" href="https://arxiv.org/abs/2410.16594" target="_blank" rel="noopener noreferrer">arXiv</a>
@@ -1387,7 +1474,7 @@
                     <article
                         class="publication reveal"
                         data-category="cosmology"
-                        data-search="renormalizable cosmology based on gauss-bonnet theory with torsion zirui hu zhifu gao haoxuan sun cixing chen xiaofeng yang cosmology gauss-bonnet torsion gr-qc"
+                        data-search="renormalizable cosmology based on gauss-bonnet theory with torsion zirui hu zhifu gao haoxuan sun cixing chen xiaofeng yang cosmology gauss-bonnet torsion gr-qc hitchhiker guide swampland cosmologist handbook string theoretical programme"
                         data-citation="Hu, Z., Gao, Z., Sun, H., Chen, C., &amp; Yang, X. (2024). Renormalizable Cosmology Based on Gauss-Bonnet Theory with Torsion. arXiv:2403.07250."
                     >
                         <div class="publication-top">
@@ -1401,6 +1488,15 @@
                         <p class="publication-note">
                             Preprint.
                         </p>
+                        <details class="citation-details">
+                            <summary>Citing papers</summary>
+                            <ol class="citation-list">
+                                <li>
+                                    <a class="citation-title" href="https://inspirehep.net/literature/2966411" target="_blank" rel="noopener noreferrer">Hitchhiker's Guide to the Swampland: The Cosmologist's Handbook to the string-theoretical Swampland Programme</a>
+                                    <span class="citation-meta">Kay Lehnert, 2025.</span>
+                                </li>
+                            </ol>
+                        </details>
                         <div class="link-row">
                             <a class="link-pill" href="https://arxiv.org/abs/2403.07250" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://inspirehep.net/literature?q=arxiv:2403.07250" target="_blank" rel="noopener noreferrer">INSPIRE-HEP</a>
@@ -1412,7 +1508,7 @@
                     <article
                         class="publication reveal"
                         data-category="astro ml"
-                        data-search="machine learning refinements to metallicity-dependent isotopic abundances haoxuan sun macalester journal physics astronomy isotopic abundances metallicity nucleosynthesis machine learning"
+                        data-search="machine learning refinements to metallicity-dependent isotopic abundances haoxuan sun macalester journal physics astronomy isotopic abundances metallicity nucleosynthesis machine learning opportunities nucleosynthesis studies michael smith dan lu"
                         data-citation="Sun, H. (2023). Machine Learning Refinements to Metallicity-Dependent Isotopic Abundances. Macalester Journal of Physics and Astronomy, 11(1), Article 14. arXiv:2403.02678."
                     >
                         <div class="publication-top">
@@ -1424,6 +1520,15 @@
                         <p class="publication-note">
                             Published in the <em>Macalester Journal of Physics and Astronomy</em>; preprint available on arXiv.
                         </p>
+                        <details class="citation-details">
+                            <summary>Citing papers</summary>
+                            <ol class="citation-list">
+                                <li>
+                                    <a class="citation-title" href="https://doi.org/10.3389/fspas.2024.1494439" target="_blank" rel="noopener noreferrer">Machine learning opportunities for nucleosynthesis studies</a>
+                                    <span class="citation-meta">Michael S. Smith and Dan Lu, 2024.</span>
+                                </li>
+                            </ol>
+                        </details>
                         <div class="link-row">
                             <a class="link-pill" href="https://arxiv.org/abs/2403.02678" target="_blank" rel="noopener noreferrer">arXiv</a>
                             <a class="link-pill" href="https://scholar.google.com/citations?hl=en&amp;user=hYP0soIAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
