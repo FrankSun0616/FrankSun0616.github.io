@@ -481,6 +481,109 @@
             font-weight: 600;
         }
 
+        .impact-panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem;
+            background: var(--surface);
+            box-shadow: var(--shadow-soft);
+            backdrop-filter: blur(18px);
+            display: grid;
+            gap: 1rem;
+        }
+
+        .impact-lead {
+            margin: 0;
+            color: var(--muted);
+            max-width: 56ch;
+        }
+
+        .impact-filter-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.55rem;
+        }
+
+        .impact-filter-wrap .filter-button {
+            min-height: 2.45rem;
+        }
+
+        .impact-filter-wrap .filter-button.is-active {
+            border-color: var(--ink-strong);
+            background: var(--ink-strong);
+            color: var(--paper-strong);
+        }
+
+        .impact-table-wrap {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: var(--surface-strong);
+            overflow: auto;
+        }
+
+        .impact-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 760px;
+            font-size: 0.96rem;
+        }
+
+        .impact-table th,
+        .impact-table td {
+            text-align: left;
+            padding: 0.9rem 0.95rem;
+            border-bottom: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        .impact-table th {
+            font-family: "IBM Plex Mono", monospace;
+            color: var(--ink-strong);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .impact-table td {
+            color: var(--ink);
+        }
+
+        .impact-row.is-hidden {
+            display: none;
+        }
+
+        .source-tag {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            margin-right: 0.35rem;
+            margin-bottom: 0.35rem;
+            padding: 0.3rem 0.68rem;
+            font-size: 0.75rem;
+            font-family: "IBM Plex Mono", monospace;
+            border: 1px solid transparent;
+            white-space: nowrap;
+        }
+
+        .source-tag.google {
+            background: rgba(0, 121, 107, 0.12);
+            color: #065f46;
+            border-color: rgba(0, 121, 107, 0.32);
+        }
+
+        .source-tag.inspire {
+            background: rgba(169, 29, 85, 0.12);
+            color: #9d123f;
+            border-color: rgba(169, 29, 85, 0.32);
+        }
+
+        .source-tag.openalex {
+            background: rgba(14, 116, 144, 0.12);
+            color: #0e7490;
+            border-color: rgba(14, 116, 144, 0.32);
+        }
+
         .source-note {
             margin: 1rem 0 0;
             padding: 0.95rem 1rem;
@@ -760,6 +863,13 @@
             font-weight: 700;
             text-decoration-thickness: 1px;
             text-underline-offset: 0.18em;
+        }
+
+        .citation-note {
+            margin: 0 0 0 1.85rem;
+            color: var(--muted);
+            font-size: 0.94rem;
+            max-width: 68ch;
         }
 
         .citation-meta {
@@ -1111,6 +1221,7 @@
             <nav class="nav" aria-label="Primary">
                 <a href="#about">About</a>
                 <a href="#research">Research</a>
+                <a href="#impact">Impact</a>
                 <a href="#publications">Publications</a>
                 <a href="#journey">Journey</a>
                 <a href="#contact">Contact</a>
@@ -1167,12 +1278,16 @@
                                 <span>Google Scholar citations</span>
                             </div>
                             <div class="snapshot-item">
-                                <strong>1</strong>
-                                <span>Google Scholar h-index</span>
+                                <strong>3</strong>
+                                <span>INSPIRE-HEP citations</span>
                             </div>
                             <div class="snapshot-item">
-                                <strong>2025</strong>
-                                <span>beginning of doctoral study at HKUST</span>
+                                <strong>2</strong>
+                                <span>OpenAlex citations</span>
+                            </div>
+                            <div class="snapshot-item">
+                                <strong>5</strong>
+                                <span>Unique citations across sources</span>
                             </div>
                         </div>
                     </div>
@@ -1217,6 +1332,93 @@
                         <a href="https://orcid.org/0009-0007-5390-7852" target="_blank" rel="noopener noreferrer">Open ORCID</a>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <section class="section" id="impact">
+            <div class="frame">
+                <div class="section-head reveal">
+                    <div>
+                        <p class="eyebrow">Citation Analytics</p>
+                        <h2>Citation Reconciliation Console</h2>
+                    </div>
+                    <p>
+                        Source-by-source indexing for the publications listed on this site, assembled with the latest
+                        available snapshots.
+                    </p>
+                </div>
+
+                <article class="impact-panel reveal">
+                    <p class="impact-lead">
+                        The table below tracks citing works visible in each index and highlights where the same record appears
+                        in multiple sources.
+                    </p>
+                    <div class="impact-filter-wrap" aria-label="Citation source controls">
+                        <button class="filter-button impact-filter is-active" type="button" data-impact-filter="all">All records</button>
+                        <button class="filter-button impact-filter" type="button" data-impact-filter="google">Google Scholar</button>
+                        <button class="filter-button impact-filter" type="button" data-impact-filter="inspire">INSPIRE-HEP</button>
+                        <button class="filter-button impact-filter" type="button" data-impact-filter="openalex">OpenAlex</button>
+                        <button class="filter-button impact-filter" type="button" data-impact-filter="overlap">Cross-source overlap</button>
+                    </div>
+                    <div class="impact-table-wrap">
+                        <table class="impact-table">
+                            <thead>
+                                <tr>
+                                    <th>Citing paper</th>
+                                    <th>Year</th>
+                                    <th>Sources identified</th>
+                                    <th>Representative evidence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="impact-row" data-sources="inspire" data-overlap="1">
+                                    <td>21 cm Power Spectrum Analysis of North Celestial Pole Observations with the Tianlai Dish Pathfinder Array</td>
+                                    <td>2026</td>
+                                    <td><span class="source-tag inspire">INSPIRE-HEP</span></td>
+                                    <td><a href="https://inspirehep.net/literature/3144845" target="_blank" rel="noopener noreferrer">Open record</a></td>
+                                </tr>
+                                <tr class="impact-row" data-sources="google inspire" data-overlap="2">
+                                    <td>Impact of initial mass function on the chemical evolution of high-redshift galaxies</td>
+                                    <td>2025</td>
+                                    <td>
+                                        <span class="source-tag google">Google Scholar</span>
+                                        <span class="source-tag inspire">INSPIRE-HEP</span>
+                                    </td>
+                                    <td><a href="https://inspirehep.net/literature/2931589" target="_blank" rel="noopener noreferrer">Open record</a></td>
+                                </tr>
+                                <tr class="impact-row" data-sources="inspire" data-overlap="1">
+                                    <td>Hitchhiker's Guide to the Swampland: The Cosmologist's Handbook to the string-theoretical Swampland Programme</td>
+                                    <td>2025</td>
+                                    <td><span class="source-tag inspire">INSPIRE-HEP</span></td>
+                                    <td><a href="https://inspirehep.net/literature/2966411" target="_blank" rel="noopener noreferrer">Open record</a></td>
+                                </tr>
+                                <tr class="impact-row" data-sources="google openalex" data-overlap="2">
+                                    <td>Machine learning opportunities for nucleosynthesis studies</td>
+                                    <td>2024</td>
+                                    <td>
+                                        <span class="source-tag google">Google Scholar</span>
+                                        <span class="source-tag openalex">OpenAlex</span>
+                                    </td>
+                                    <td><a href="https://doi.org/10.3389/fspas.2024.1494439" target="_blank" rel="noopener noreferrer">Open record</a></td>
+                                </tr>
+                                <tr class="impact-row" data-sources="openalex" data-overlap="1">
+                                    <td>Probing the 3D Structures of Supernovae through IR Signatures of CO and SiO</td>
+                                    <td>2026</td>
+                                    <td><span class="source-tag openalex">OpenAlex</span></td>
+                                    <td><a href="https://openalex.org/W7162032482" target="_blank" rel="noopener noreferrer">Open record</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="empty-state" id="impactEmpty">No citation records match the selected filter.</p>
+                    </div>
+                    <details class="citation-details">
+                        <summary>Cross-source reconciliation note</summary>
+                        <p class="citation-note">
+                            Records are deduplicated by title across sources where matching evidence is available.
+                            Duplicate visibility is represented by more than one source marker on a row.
+                        </p>
+                    </details>
+                </article>
             </div>
         </section>
 
@@ -1424,7 +1626,7 @@
                             <ol class="citation-list">
                                 <li>
                                     <a class="citation-title" href="https://inspirehep.net/literature/3144845" target="_blank" rel="noopener noreferrer">21 cm Power Spectrum Analysis of North Celestial Pole Observations with the Tianlai Dish Pathfinder Array</a>
-                                    <span class="citation-meta">Guangzhi He, Shifan Zuo, Jixia Li, Yichao Li, et al., 2026.</span>
+                                    <span class="citation-meta">INSPIRE-HEP record. Source list: INSPIRE-HEP.</span>
                                 </li>
                             </ol>
                         </details>
@@ -1458,7 +1660,11 @@
                             <ol class="citation-list">
                                 <li>
                                     <a class="citation-title" href="https://inspirehep.net/literature/2931589" target="_blank" rel="noopener noreferrer">Impact of initial mass function on the chemical evolution of high-redshift galaxies</a>
-                                    <span class="citation-meta">Boyuan Liu, Michela Mapelli, Volker Bromm, Ralf S. Klessen, et al., 2025.</span>
+                                    <span class="citation-meta">Author record and citation index: Google Scholar + INSPIRE-HEP.</span>
+                                </li>
+                                <li>
+                                    <a class="citation-title" href="https://openalex.org/W7162032482" target="_blank" rel="noopener noreferrer">Probing the 3D Structures of Supernovae through IR Signatures of CO and SiO</a>
+                                    <span class="citation-meta">OpenAlex record: Boyuan Liu et al., 2026.</span>
                                 </li>
                             </ol>
                         </details>
@@ -1525,7 +1731,7 @@
                             <ol class="citation-list">
                                 <li>
                                     <a class="citation-title" href="https://doi.org/10.3389/fspas.2024.1494439" target="_blank" rel="noopener noreferrer">Machine learning opportunities for nucleosynthesis studies</a>
-                                    <span class="citation-meta">Michael S. Smith and Dan Lu, 2024.</span>
+                                    <span class="citation-meta">Source list: Google Scholar and OpenAlex.</span>
                                 </li>
                             </ol>
                         </details>
@@ -1671,8 +1877,11 @@
         const themeIcon = document.getElementById("themeIcon");
         const publicationSearch = document.getElementById("publicationSearch");
         const publicationCards = [...document.querySelectorAll(".publication")];
-        const filterButtons = [...document.querySelectorAll(".filter-button")];
+        const filterButtons = [...document.querySelectorAll(".publication-tools .filter-button")];
         const publicationEmpty = document.getElementById("publicationEmpty");
+        const impactFilterButtons = [...document.querySelectorAll(".impact-filter")];
+        const impactRows = [...document.querySelectorAll(".impact-row")];
+        const impactEmpty = document.getElementById("impactEmpty");
         const toast = document.getElementById("toast");
         const commandOpen = document.getElementById("commandOpen");
         const commandPalette = document.getElementById("commandPalette");
@@ -1684,6 +1893,7 @@
             .map((link) => document.querySelector(link.getAttribute("href")))
             .filter(Boolean);
         let activeFilter = "all";
+        let activeImpactFilter = "all";
         let toastTimer;
 
         const showToast = (message) => {
@@ -1733,6 +1943,26 @@
             publicationEmpty.classList.toggle("is-visible", visibleCount === 0);
         };
 
+        const updateImpactRows = () => {
+            let visibleCount = 0;
+
+            impactRows.forEach((row) => {
+                const sources = row.dataset.sources.split(" ");
+                const overlap = Number(row.dataset.overlap || 0);
+                const matchesAll = activeImpactFilter === "all";
+                const matchesSource = sources.includes(activeImpactFilter);
+                const matchesOverlap = activeImpactFilter === "overlap" && overlap > 1;
+                const shouldShow = matchesAll || matchesSource || matchesOverlap;
+
+                row.classList.toggle("is-hidden", !shouldShow);
+                if (shouldShow) {
+                    visibleCount += 1;
+                }
+            });
+
+            impactEmpty.classList.toggle("is-visible", visibleCount === 0);
+        };
+
         publicationSearch.addEventListener("input", updatePublicationResults);
 
         filterButtons.forEach((button) => {
@@ -1740,6 +1970,14 @@
                 activeFilter = button.dataset.filter;
                 filterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
                 updatePublicationResults();
+            });
+        });
+
+        impactFilterButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                activeImpactFilter = button.dataset.impactFilter;
+                impactFilterButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+                updateImpactRows();
             });
         });
 
@@ -1769,6 +2007,7 @@
             { label: "Biography", detail: "About and current position", target: "#about" },
             { label: "Research", detail: "Research interests and experience", target: "#research" },
             { label: "Publications", detail: "Search and filter publications", target: "#publications" },
+            { label: "Impact", detail: "Citation reconciliation console", target: "#impact" },
             { label: "Academic Training", detail: "Education timeline", target: "#journey" },
             { label: "Contact", detail: "Email and academic links", target: "#contact" },
             { label: "Download CV", detail: "PDF curriculum vitae", target: "Haoxuan_Sun_CV.pdf" },
@@ -1848,6 +2087,7 @@
         window.addEventListener("scroll", updateProgress, { passive: true });
         window.addEventListener("resize", updateProgress);
         updateProgress();
+        updateImpactRows();
 
         const navObserver = new IntersectionObserver(
             (entries) => {
