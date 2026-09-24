@@ -789,17 +789,6 @@ em {
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center 20%;
-    filter: grayscale(1) contrast(1.06);
-    transition: filter 0.6s ease;
-}
-
-[data-theme="display"] .abs-fig img {
-    filter: grayscale(1) contrast(1.06) brightness(0.86);
-}
-
-.abs-fig:hover img,
-[data-theme="display"] .abs-fig:hover img {
-    filter: none;
 }
 
 .abs-fig figcaption {
