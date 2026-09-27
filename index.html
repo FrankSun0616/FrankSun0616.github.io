@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <title>Haoxuan (Frank) Sun — Higgs physics &amp; machine learning · ATLAS · HKUST</title>
-    <meta name="description" content="Haoxuan (Frank) Sun is a Physics PhD candidate at HKUST and a member of the ATLAS Collaboration at CERN, working on H → ZZ* → 4ℓ measurements, SMEFT interpretations and deep-learning electron identification for Run-3 data.">
+    <meta name="description" content="Haoxuan (Frank) Sun is a Physics PhD candidate at HKUST and a member of the ATLAS Collaboration at CERN, working on H → ZZ* → 4ℓ measurements, SMEFT interpretations and deep-learning electron identification for Run 3 data.">
     <meta name="author" content="Haoxuan Sun">
     <meta name="color-scheme" content="dark light">
     <meta name="theme-color" content="#07080b">
@@ -23,7 +23,8 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600&amp;display=swap">
+    <link rel="preload" href="assets/fonts/preprint-serif-roman.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&amp;family=Geist:wght@400;500;600&amp;display=swap">
     <link rel="stylesheet" href="assets/site.css">
 
     <script>
@@ -83,11 +84,11 @@
         </a>
 
         <nav class="bar-nav mono" aria-label="Sections">
-            <a href="#physics"><span>01</span>Research</a>
-            <a href="#logbook"><span>02</span>Projects</a>
-            <a href="#papers"><span>03</span>Papers</a>
-            <a href="#path"><span>04</span>Path</a>
-            <a href="#contact"><span>05</span>Contact</a>
+            <a href="#physics">Research</a>
+            <a href="#logbook">Projects</a>
+            <a href="#papers">Papers</a>
+            <a href="#path">Path</a>
+            <a href="#contact">Contact</a>
         </nav>
 
         <div class="bar-tools">
@@ -111,7 +112,7 @@
             </div>
 
             <div class="hero-copy">
-                <p class="kicker mono">PhD candidate · Department of Physics, HKUST<br>Member of the ATLAS Collaboration at CERN</p>
+                <p class="kicker mono">PhD candidate · Department of Physics, HKUST<br>ATLAS Collaboration · Hong Kong PhD Fellow</p>
                 <h1 class="hero-name" aria-label="Haoxuan (Frank) Sun">
                     <span class="m" aria-hidden="true"><span>Haoxuan</span></span>
                     <span class="m" aria-hidden="true"><span>Sun<em class="aka">(Frank)</em></span></span>
@@ -119,8 +120,8 @@
                 <p class="hero-line">I measure the Higgs boson through its decay to four leptons, and train neural networks to tell electrons from everything else.</p>
                 <div class="hero-actions">
                     <a class="btn btn-solid" href="#physics">See the physics <span aria-hidden="true">↓</span></a>
-                    <a class="btn" href="Haoxuan_Sun_CV.pdf" download>CV <span class="mono small">PDF</span></a>
-                    <a class="btn" href="mailto:hsunbl@connect.ust.hk">Email</a>
+                    <a class="btn" href="Haoxuan_Sun_CV.pdf" download>Download CV <span class="mono small">PDF</span></a>
+                    <a class="btn" href="mailto:hsunbl@connect.ust.hk">Email me</a>
                 </div>
             </div>
 
@@ -160,9 +161,10 @@
                     <p class="abs-text">
                         I am a PhD candidate in physics at the Hong Kong University of Science and Technology and a member
                         of the ATLAS Collaboration. My work sits where experimental particle physics meets machine learning:
-                        implementing decay-level STXS definitions for <span class="nowrap">H → ZZ* → 4ℓ</span>, probing SMEFT
-                        modifications of Higgs couplings with large Monte Carlo samples, and training a deep-learning electron
-                        identification for Run-3 data. Before HKUST I built neural-network jet calibration at Brown University
+                        implementing decay-level simplified template cross-section (STXS) definitions for
+                        <span class="nowrap">H → ZZ* → 4ℓ</span> (ℓ = e, μ), probing Standard Model effective field theory (SMEFT)
+                        modifications of Higgs boson couplings with large Monte Carlo samples, and training a deep-learning
+                        electron identification for Run 3 data. Before HKUST I built neural-network jet calibration at Brown University
                         and studied physics and mathematics at Macalester College, with papers in stellar nucleosynthesis,
                         21&nbsp;cm survey science and cosmology.
                     </p>
@@ -216,10 +218,10 @@
                                 <p class="step-k mono">01 / 04 · Collide</p>
                                 <h3>Forty million crossings a second.</h3>
                                 <p>
-                                    The LHC collides protons at √s = 13.6 TeV. Almost everything it makes is ordinary: Z-boson
-                                    pairs, Z bosons with jets, top quarks. In the four-lepton spectrum that background has a
-                                    shape, with a sharp Z → 4ℓ peak at 91 GeV and a rise where two on-shell Z bosons become
-                                    possible near 182 GeV.
+                                    The LHC collides protons at √s = 13.6 TeV. Almost all of it is Standard Model background:
+                                    ZZ* production, Z bosons produced with jets, and top-quark pairs. In the four-lepton
+                                    invariant mass that background has a shape, with a narrow Z → 4ℓ peak at 91 GeV and a rise
+                                    where two on-shell Z bosons become possible near 182 GeV.
                                 </p>
                             </article>
 
@@ -228,9 +230,10 @@
                                 <h3>Find the electrons.</h3>
                                 <p>
                                     Each event depends on identifying four leptons among thousands of tracks. With the EGamma
-                                    group I am training a DNN-based electron identification on Run-3 data to replace the current
-                                    Bayes classifier, focusing on the low-p<sub>T</sub> electrons that H → 4ℓ relies on. Better
-                                    identification means less fake background.
+                                    group I am training a deep neural network (DNN) electron identification on Run 3 data to
+                                    replace the current likelihood-based (Bayes) classifier, focusing on the low-p<sub>T</sub>
+                                    electrons that H → 4ℓ relies on. Tighter identification reduces the background from
+                                    misidentified and non-prompt leptons.
                                 </p>
                                 <p class="step-tag mono"><i class="live" aria-hidden="true"></i>Current project · Jan 2026 to present</p>
                             </article>
@@ -240,8 +243,8 @@
                                 <h3>A peak at 125 GeV.</h3>
                                 <p>
                                     What survives shows a narrow resonance at the Higgs boson mass, on top of the ZZ* continuum.
-                                    The four-lepton channel is small but clean: every lepton is measured precisely, so the
-                                    peak is sharp.
+                                    The four-lepton final state has a small branching ratio but little background, and every
+                                    lepton is measured precisely, so the peak is narrow.
                                 </p>
                             </article>
 
@@ -251,8 +254,8 @@
                                 <p>
                                     In the RML subgroup I am implementing decay STXS fiducial definitions in Athena, extending the
                                     derivation and ntuple workflow for H → ZZ* → 4ℓ. In parallel I generate MadGraph and Pythia
-                                    samples to see how SMEFT operators reshape cross-sections and yields, which is where new
-                                    physics would show up.
+                                    samples to see how SMEFT operators change cross-sections and yields, which is where effects
+                                    beyond the Standard Model could appear.
                                 </p>
                                 <p class="step-tag mono"><i class="live" aria-hidden="true"></i>Current project · Sep 2025 to present</p>
                             </article>
@@ -264,15 +267,18 @@
                     <figure class="pin-plot">
                         <p class="plot-label mono"><b>Toy model</b><span class="pl-extra"> · √s = 13.6 TeV</span> · illustrative, not ATLAS data</p>
                         <div class="plot-box">
-                            <canvas id="spectrum" role="img" aria-label="Toy four-lepton invariant mass spectrum from 70 to 200 GeV: a Z boson peak at 91 GeV, a Higgs boson peak at 125 GeV, and the ZZ continuum rising near 182 GeV."></canvas>
+                            <canvas id="spectrum" role="img" aria-label="Toy model, not ATLAS data. Four-lepton invariant mass spectrum from 70 to 200 GeV, built in four steps: background alone, with a narrow Z to four-lepton peak at 91 GeV and a rise near 182 GeV; the background reduced by tighter lepton identification; a Higgs boson peak at 125 GeV with pseudo-data; and the Higgs peak split into the 4 mu, 2e2mu, 2mu2e and 4e final states with an illustrative SMEFT shift."></canvas>
                         </div>
                         <ul class="plot-legend mono">
-                            <li data-from="2"><i class="sw sw-dot"></i>Pseudo-data</li>
+                            <li data-from="2"><i class="sw sw-dot"></i>Pseudo-data ± √N</li>
                             <li data-from="2"><i class="sw sw-sig"></i>Higgs, m<sub>H</sub> = 125 GeV</li>
                             <li data-from="0"><i class="sw sw-zz"></i>ZZ*</li>
                             <li data-from="0"><i class="sw sw-red"></i>Z+jets, tt̄</li>
-                            <li data-from="3"><i class="sw sw-fs"></i>4μ · 2e2μ · 2μ2e · 4e</li>
-                            <li data-from="3"><i class="sw sw-smeft"></i>SMEFT variation</li>
+                            <li data-from="3" class="fs"><i class="sw sw-mu4"></i>4μ</li>
+                            <li data-from="3" class="fs"><i class="sw sw-sig"></i>2e2μ</li>
+                            <li data-from="3" class="fs"><i class="sw sw-sig2"></i>2μ2e</li>
+                            <li data-from="3" class="fs"><i class="sw sw-e4"></i>4e</li>
+                            <li data-from="3"><i class="sw sw-smeft"></i>Illustrative SMEFT shift</li>
                         </ul>
                     </figure>
                 </div>
@@ -287,12 +293,14 @@
                 <h2 class="sec-title split" id="logbook-title">
                     <span class="m"><span>The <em>logbook</em><i class="dot">.</i></span></span>
                 </h2>
-                <p class="sec-dek">What I am building, in detail. Two ATLAS projects at HKUST, and the calibration work that led to them.</p>
+                <p class="sec-dek">What I am building, in detail: two ATLAS projects at HKUST, each tied to its step in the analysis chain, and the calibration work that led to them.</p>
             </div>
 
             <article class="log">
                 <div class="rule"></div>
-                <p class="log-idx">01</p>
+                <a class="log-idx" href="#physics" data-goto-step="3" aria-label="Analysis step 4, Interpret: show it in the spectrum">
+                    <span class="mono">Step</span><b>4</b><span class="mono">Interpret <span aria-hidden="true">↑</span></span>
+                </a>
                 <div class="log-meta mono">
                     <p class="now"><i class="live" aria-hidden="true"></i>Sep 2025 to present</p>
                     <p>ATLAS Collaboration</p>
@@ -302,7 +310,7 @@
                     <h3>Decay STXS implementation in the H → ZZ* → 4ℓ sector</h3>
                     <ul>
                         <li>Implementing fiducial cut definitions for Higgs boson decay STXS in the ATLAS Athena framework, extending the derivation and ntuple workflow for the H → ZZ* → 4ℓ analysis chain.</li>
-                        <li>Investigating SMEFT modifications of Higgs couplings with large-scale Monte Carlo generation in MadGraph and Pythia, producing cross-section and yield distributions as functions of EFT operator coefficients.</li>
+                        <li>Investigating SMEFT modifications of Higgs couplings with large-scale Monte Carlo generation in MadGraph and Pythia, producing cross-section and yield distributions as functions of the Wilson coefficients.</li>
                     </ul>
                     <p class="tags mono"><span>Athena</span><span>STXS</span><span>SMEFT</span><span>MadGraph</span><span>Pythia</span></p>
                 </div>
@@ -310,25 +318,29 @@
 
             <article class="log">
                 <div class="rule"></div>
-                <p class="log-idx">02</p>
+                <a class="log-idx" href="#physics" data-goto-step="1" aria-label="Analysis step 2, Identify: show it in the spectrum">
+                    <span class="mono">Step</span><b>2</b><span class="mono">Identify <span aria-hidden="true">↑</span></span>
+                </a>
                 <div class="log-meta mono">
                     <p class="now"><i class="live" aria-hidden="true"></i>Jan 2026 to present</p>
                     <p>ATLAS Collaboration</p>
                     <p>EGamma subgroup · HKUST</p>
                 </div>
                 <div class="log-body">
-                    <h3>DNN-based electron identification for Run-3 ATLAS data</h3>
+                    <h3>DNN-based electron identification for Run 3 ATLAS data</h3>
                     <ul>
-                        <li>Training a DNN-based electron identification menu on Run-3 data to replace the current Bayes classifier, focusing on low-p<sub>T</sub> performance relevant to H → 4ℓ signatures.</li>
-                        <li>Preparing training samples with the Tag-and-Probe framework and migrating the trained model from TensorFlow to the Salt framework for more flexibility and cleaner integration with ATLAS software.</li>
+                        <li>Training a deep neural network (DNN) electron identification menu on Run 3 data to replace the current likelihood-based (Bayes) classifier, focusing on low-p<sub>T</sub> performance relevant to H → 4ℓ signatures.</li>
+                        <li>Preparing training samples with the tag-and-probe framework and migrating the trained model from TensorFlow to the Salt framework for more flexibility and cleaner integration with ATLAS software.</li>
                     </ul>
-                    <p class="tags mono"><span>Deep learning</span><span>Tag-and-Probe</span><span>TensorFlow</span><span>Salt</span></p>
+                    <p class="tags mono"><span>Deep learning</span><span>Tag-and-probe</span><span>TensorFlow</span><span>Salt</span></p>
                 </div>
             </article>
 
             <article class="log">
                 <div class="rule"></div>
-                <p class="log-idx">03</p>
+                <p class="log-idx">
+                    <span class="mono">Before</span><b>CMS</b><span class="mono">open data</span>
+                </p>
                 <div class="log-meta mono">
                     <p>Jan 2024 to Nov 2025</p>
                     <p>Brown University</p>
@@ -374,9 +386,9 @@
                         </details>
                     </div>
                     <div class="paper-actions mono">
-                        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/add68f" target="_blank" rel="noopener noreferrer">Journal ↗</a>
-                        <a href="https://arxiv.org/abs/2410.16594" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
-                        <a href="https://inspirehep.net/literature?q=arxiv:2410.16594" target="_blank" rel="noopener noreferrer">INSPIRE ↗</a>
+                        <a href="https://iopscience.iop.org/article/10.3847/1538-4357/add68f" target="_blank" rel="noopener noreferrer">Journal <span aria-hidden="true">↗</span></a>
+                        <a href="https://arxiv.org/abs/2410.16594" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
+                        <a href="https://inspirehep.net/literature?q=arxiv:2410.16594" target="_blank" rel="noopener noreferrer">INSPIRE <span aria-hidden="true">↗</span></a>
                         <button type="button" class="copy-cite">Copy citation</button>
                     </div>
                 </li>
@@ -395,8 +407,8 @@
                         </details>
                     </div>
                     <div class="paper-actions mono">
-                        <a href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
-                        <a href="https://inspirehep.net/literature/3096626" target="_blank" rel="noopener noreferrer">INSPIRE ↗</a>
+                        <a href="https://arxiv.org/abs/2512.23899" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
+                        <a href="https://inspirehep.net/literature/3096626" target="_blank" rel="noopener noreferrer">INSPIRE <span aria-hidden="true">↗</span></a>
                         <button type="button" class="copy-cite">Copy citation</button>
                     </div>
                 </li>
@@ -415,8 +427,8 @@
                         </details>
                     </div>
                     <div class="paper-actions mono">
-                        <a href="https://arxiv.org/abs/2403.07250" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
-                        <a href="https://inspirehep.net/literature?q=arxiv:2403.07250" target="_blank" rel="noopener noreferrer">INSPIRE ↗</a>
+                        <a href="https://arxiv.org/abs/2403.07250" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
+                        <a href="https://inspirehep.net/literature?q=arxiv:2403.07250" target="_blank" rel="noopener noreferrer">INSPIRE <span aria-hidden="true">↗</span></a>
                         <button type="button" class="copy-cite">Copy citation</button>
                     </div>
                 </li>
@@ -435,8 +447,8 @@
                         </details>
                     </div>
                     <div class="paper-actions mono">
-                        <a href="https://digitalcommons.macalester.edu/mjpa/vol11/iss1/14" target="_blank" rel="noopener noreferrer">Journal ↗</a>
-                        <a href="https://arxiv.org/abs/2403.02678" target="_blank" rel="noopener noreferrer">arXiv ↗</a>
+                        <a href="https://digitalcommons.macalester.edu/mjpa/vol11/iss1/14" target="_blank" rel="noopener noreferrer">Journal <span aria-hidden="true">↗</span></a>
+                        <a href="https://arxiv.org/abs/2403.02678" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
                         <button type="button" class="copy-cite">Copy citation</button>
                     </div>
                 </li>
@@ -461,14 +473,14 @@
                             <tr><th scope="col">Citing work</th><th scope="col">Year</th><th scope="col">Indexes</th><th scope="col"><span class="sr">Link</span></th></tr>
                         </thead>
                         <tbody>
-                            <tr data-src="inspire"><td>21 cm Power Spectrum Analysis of North Celestial Pole Observations with the Tianlai Dish Pathfinder Array</td><td class="mono">2026</td><td class="mono"><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/3144845" target="_blank" rel="noopener noreferrer">Record ↗</a></td></tr>
-                            <tr data-src="openalex"><td>Probing the 3D Structures of Supernovae through IR Signatures of CO and SiO</td><td class="mono">2026</td><td class="mono"><span class="idx">OpenAlex</span></td><td class="mono"><a href="https://openalex.org/W7162032482" target="_blank" rel="noopener noreferrer">Record ↗</a></td></tr>
-                            <tr data-src="google inspire"><td>Impact of initial mass function on the chemical evolution of high-redshift galaxies</td><td class="mono">2025</td><td class="mono"><span class="idx">Scholar</span><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/2931589" target="_blank" rel="noopener noreferrer">Record ↗</a></td></tr>
-                            <tr data-src="inspire"><td>Hitchhiker's Guide to the Swampland: The Cosmologist's Handbook to the string-theoretical Swampland Programme</td><td class="mono">2025</td><td class="mono"><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/2966411" target="_blank" rel="noopener noreferrer">Record ↗</a></td></tr>
-                            <tr data-src="google openalex"><td>Machine learning opportunities for nucleosynthesis studies</td><td class="mono">2024</td><td class="mono"><span class="idx">Scholar</span><span class="idx">OpenAlex</span></td><td class="mono"><a href="https://doi.org/10.3389/fspas.2024.1494439" target="_blank" rel="noopener noreferrer">Record ↗</a></td></tr>
+                            <tr data-src="inspire"><td>21 cm Power Spectrum Analysis of North Celestial Pole Observations with the Tianlai Dish Pathfinder Array</td><td class="mono">2026</td><td class="mono"><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/3144845" target="_blank" rel="noopener noreferrer">Record <span aria-hidden="true">↗</span></a></td></tr>
+                            <tr data-src="openalex"><td>Probing the 3D Structures of Supernovae through IR Signatures of CO and SiO</td><td class="mono">2026</td><td class="mono"><span class="idx">OpenAlex</span></td><td class="mono"><a href="https://openalex.org/W7162032482" target="_blank" rel="noopener noreferrer">Record <span aria-hidden="true">↗</span></a></td></tr>
+                            <tr data-src="google inspire"><td>Impact of initial mass function on the chemical evolution of high-redshift galaxies</td><td class="mono">2025</td><td class="mono"><span class="idx">Scholar</span><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/2931589" target="_blank" rel="noopener noreferrer">Record <span aria-hidden="true">↗</span></a></td></tr>
+                            <tr data-src="inspire"><td>Hitchhiker's Guide to the Swampland: The Cosmologist's Handbook to the string-theoretical Swampland Programme</td><td class="mono">2025</td><td class="mono"><span class="idx">INSPIRE</span></td><td class="mono"><a href="https://inspirehep.net/literature/2966411" target="_blank" rel="noopener noreferrer">Record <span aria-hidden="true">↗</span></a></td></tr>
+                            <tr data-src="google openalex"><td>Machine learning opportunities for nucleosynthesis studies</td><td class="mono">2024</td><td class="mono"><span class="idx">Scholar</span><span class="idx">OpenAlex</span></td><td class="mono"><a href="https://doi.org/10.3389/fspas.2024.1494439" target="_blank" rel="noopener noreferrer">Record <span aria-hidden="true">↗</span></a></td></tr>
                         </tbody>
                     </table>
-                    <p class="empty mono" id="ledgerEmpty" hidden>No citing works match this filter.</p>
+                    <p class="empty mono" id="ledgerEmpty" hidden>No citing works in this index yet. Choose All to see every record.</p>
                 </div>
             </div>
 
@@ -637,7 +649,7 @@
 
     <dialog class="palette" id="palette" aria-label="Navigate">
         <form method="dialog" class="pal-head">
-            <input class="pal-input" id="palInput" type="text" placeholder="Jump to a section, paper or link…" aria-label="Search" autocomplete="off" spellcheck="false">
+            <input class="pal-input" id="palInput" type="text" role="combobox" aria-expanded="true" aria-controls="palList" aria-autocomplete="list" placeholder="Jump to a section, paper or link…" aria-label="Search sections, papers and links" autocomplete="off" spellcheck="false">
             <button class="pal-close mono" value="close" aria-label="Close">Esc</button>
         </form>
         <ul class="pal-list" id="palList" role="listbox" aria-label="Results"></ul>

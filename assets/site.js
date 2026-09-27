@@ -59,7 +59,7 @@
     function setTheme(mode, persist) {
         root.dataset.theme = mode;
         modeButtons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.mode === mode)));
-        if (themeMeta) themeMeta.content = mode === "paper" ? "#f3f1ea" : "#07080b";
+        if (themeMeta) themeMeta.content = mode === "paper" ? "#fdfdfc" : "#07080b";
         if (persist) {
             try {
                 localStorage.setItem("theme", mode);
@@ -930,6 +930,11 @@
                 if (v1 - v0 <= 0.0005) return;
                 ctx.fillStyle = fill;
                 ctx.fillRect(xa, Y(v1), w, Y(v0) - Y(v1));
+                /* hairline in the page colour so stacked boundaries survive without colour vision */
+                if (v0 > 0.0005 && Y(v0) - Y(v1) > 2 * dpr) {
+                    ctx.fillStyle = rgba(P.bg, 0.85);
+                    ctx.fillRect(xa, Y(v0) - 0.5 * dpr, w, dpr);
+                }
             };
 
             /* stacked histogram */
@@ -1093,7 +1098,7 @@
 
             note("Z → 4ℓ", 91.2, 21, clamp((s1 - 0.6) / 0.4));
             note("on-shell ZZ →", 176, 12.5, clamp((s1 - 0.8) / 0.2), "right");
-            note(narrow ? "┄ before ID" : "┄ before better ID   ─ after", 101, 6.4, ghost, "left");
+            note(narrow ? "┄ looser identification" : "┄ looser identification   ─ tighter", 101, 6.4, ghost, "left");
 
             if (s3 > 0) {
                 ctx.save();
@@ -1131,6 +1136,16 @@
         }
 
         function update() {
+            if (reduced()) {
+                /* static key frame: the completed chart, with every step's text stacked beside it */
+                if (lastP !== 1) {
+                    p = 1;
+                    lastP = 1;
+                    setStep(3);
+                    draw();
+                }
+                return;
+            }
             const rect = pin.getBoundingClientRect();
             const span = pin.offsetHeight - window.innerHeight;
             p = span > 0 ? clamp(-rect.top / span) : 1;
@@ -1152,14 +1167,34 @@
             draw();
         }
 
-        gotos.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                const i = Number(btn.dataset.goto);
-                const span = pin.offsetHeight - window.innerHeight;
-                const top = window.scrollY + pin.getBoundingClientRect().top + span * TARGETS[i];
-                window.scrollTo({ top, behavior: reduced() ? "auto" : "smooth" });
+        function goto(i) {
+            if (reduced()) {
+                const step = steps[i];
+                if (step) step.scrollIntoView({ block: "start" });
+                return;
+            }
+            const span = pin.offsetHeight - window.innerHeight;
+            const top = window.scrollY + pin.getBoundingClientRect().top + span * TARGETS[i];
+            window.scrollTo({ top, behavior: "smooth" });
+        }
+
+        gotos.forEach((btn) => btn.addEventListener("click", () => goto(Number(btn.dataset.goto))));
+
+        /* logbook entries link to the step of the chain they belong to */
+        $$("[data-goto-step]").forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                goto(Number(link.dataset.gotoStep));
             });
         });
+
+        if (reduceMQ.addEventListener) {
+            reduceMQ.addEventListener("change", () => {
+                lastP = -1;
+                stepIdx = -1;
+                update();
+            });
+        }
 
         if ("ResizeObserver" in window) new ResizeObserver(resize).observe(box);
         else window.addEventListener("resize", resize);
@@ -1168,7 +1203,7 @@
         setStep(0);
         update();
 
-        return { update, draw };
+        return { update, draw, goto };
     })();
 
     if (Spectrum) themeHooks.push(Spectrum.draw);
@@ -1300,7 +1335,7 @@
     $$(".copy-cite").forEach((btn) => {
         btn.addEventListener("click", async () => {
             const cite = btn.closest(".paper").dataset.cite;
-            toast((await copyText(cite)) ? "Citation copied" : "Copy failed");
+            toast((await copyText(cite)) ? "Citation copied" : "Couldn't copy. Select the text and copy it manually.");
         });
     });
 
@@ -1328,7 +1363,7 @@
        =============================================================== */
 
     const copyMail = async (address) => {
-        toast((await copyText(address)) ? "Email address copied" : "Copy failed");
+        toast((await copyText(address)) ? "Email address copied" : "Couldn't copy. Select the address and copy it manually.");
     };
 
     $$(".copy-mail").forEach((btn) => btn.addEventListener("click", () => copyMail(btn.dataset.mail)));
@@ -1399,10 +1434,12 @@
                 li.className = "pal-empty";
                 li.textContent = "Nothing matches. Try “papers” or “cv”.";
                 list.appendChild(li);
+                input.removeAttribute("aria-activedescendant");
                 return;
             }
             results.forEach((it, i) => {
                 const li = document.createElement("li");
+                li.id = `pal-opt-${i}`;
                 li.setAttribute("role", "option");
                 li.setAttribute("aria-selected", String(i === sel));
                 li.dataset.i = String(i);
@@ -1415,10 +1452,12 @@
                 li.append(l, d);
                 list.appendChild(li);
             });
+            input.setAttribute("aria-activedescendant", `pal-opt-${sel}`);
         }
 
         function select(i) {
             sel = i;
+            input.setAttribute("aria-activedescendant", `pal-opt-${sel}`);
             $$("[role=option]", list).forEach((li, k) => li.setAttribute("aria-selected", String(k === sel)));
             const el = list.children[sel];
             if (el) el.scrollIntoView({ block: "nearest" });

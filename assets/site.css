@@ -1,8 +1,30 @@
+@font-face {
+    font-family: "Preprint Serif";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/preprint-serif-roman.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Preprint Serif";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("fonts/preprint-serif-italic.woff2") format("woff2");
+}
+
 /* =====================================================================
    Haoxuan Sun: personal site
    Concept: a detector event display meets a physics paper.
-   Rule: colour only means physics. UI is ink on black (or ink on paper);
-   colour marks electrons, muons, and the signal.
+   Rule: colour only means physics. UI is ink on black (or ink on a white
+   preprint page); colour marks electrons, muons, and the signal.
+
+   Type roles
+   display / headings / abstract   Preprint Serif (Computer Modern subset), 400
+   body / UI                       Geist 400-500, 17px, measure <= 70ch
+   readouts / labels / data        JetBrains Mono 400-500, >= 11.5px, tracking <= .08em
+   Uppercase only for labels of one or two words; longer labels are sentence case.
    ===================================================================== */
 
 :root {
@@ -13,14 +35,14 @@
     --ink-2: #bdbcb5;
     --muted: #85847e;
     --hair: rgba(236, 235, 230, 0.12);
-    --hair-2: rgba(236, 235, 230, 0.26);
+    --hair-2: rgba(236, 235, 230, 0.32);
 
     --signal: #ffb547;
     --signal-2: #f7d6a3;
     --electron: #3fe0a5;
     --muon: #ff5f52;
 
-    --serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --serif: "Preprint Serif", "Latin Modern Roman", "CMU Serif", "Computer Modern", Georgia, serif;
     --sans: "Geist", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
@@ -31,14 +53,14 @@
 }
 
 [data-theme="paper"] {
-    --bg: #f3f1ea;
-    --bg-raise: #ebe8df;
-    --bar-bg: rgba(243, 241, 234, 0.86);
-    --ink: #121210;
-    --ink-2: #2f2e2a;
-    --muted: #67655e;
-    --hair: rgba(18, 18, 16, 0.14);
-    --hair-2: rgba(18, 18, 16, 0.34);
+    --bg: #fdfdfc;
+    --bg-raise: #f3f3f1;
+    --bar-bg: rgba(253, 253, 252, 0.88);
+    --ink: #111111;
+    --ink-2: #2e2e2c;
+    --muted: #66655f;
+    --hair: rgba(17, 17, 17, 0.13);
+    --hair-2: rgba(17, 17, 17, 0.36);
 
     --signal: #a85800;
     --signal-2: #d6a66c;
@@ -71,21 +93,6 @@ body {
     text-rendering: optimizeLegibility;
     overflow-x: clip;
     transition: background-color 0.35s ease, color 0.35s ease;
-}
-
-/* film grain, static */
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0.05;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-[data-theme="paper"] body::before {
-    opacity: 0.08;
 }
 
 img,
@@ -177,11 +184,6 @@ button {
     margin-right: 0.55em;
     vertical-align: 0.12em;
     background: var(--signal);
-    animation: blink 2.4s steps(1) infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0.25; }
 }
 
 .dot {
@@ -220,9 +222,9 @@ button {
 }
 
 .bar-name {
-    font: 400 1.45rem/1 var(--serif);
+    font: 400 1.32rem/1 var(--serif);
     color: var(--ink);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
 }
 
 .bar-status {
@@ -247,11 +249,6 @@ button {
     text-decoration: none;
     color: var(--muted);
     transition: color 0.2s ease;
-}
-
-.bar-nav a span {
-    margin-right: 0.5em;
-    opacity: 0.55;
 }
 
 .bar-nav a::after {
@@ -440,18 +437,18 @@ button {
 }
 
 .kicker {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     line-height: 1.7;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
-    animation: fade 0.9s 0.35s both;
+    animation: fade 0.6s 0.1s both;
 }
 
 .hero-name {
     margin: 1.2rem 0 0;
-    font: 400 clamp(4.4rem, 12.8vw, 12.5rem)/0.84 var(--serif);
-    letter-spacing: -0.025em;
+    font: 400 clamp(3.9rem, 10.2vw, 10.4rem)/0.88 var(--serif);
+    letter-spacing: -0.02em;
     color: var(--ink);
 }
 
@@ -463,28 +460,28 @@ button {
 
 .hero-name .m > span {
     display: inline-block;
-    animation: rise 1.15s var(--ease) both;
+    animation: rise 0.9s var(--ease) both;
 }
 
 .hero-name .m + .m > span {
-    animation-delay: 0.09s;
+    animation-delay: 0.06s;
 }
 
 .aka {
     margin-left: 0.3em;
-    font-size: 0.24em;
+    font-size: 0.26em;
     letter-spacing: 0;
-    vertical-align: 2.3em;
+    vertical-align: 2.1em;
     color: var(--muted);
 }
 
 .hero-line {
-    max-width: 30ch;
+    max-width: 34ch;
     margin-top: 1.6rem;
-    font: 400 clamp(1.3rem, 2.1vw, 1.8rem)/1.28 var(--serif);
+    font: 400 clamp(1.2rem, 1.75vw, 1.55rem)/1.36 var(--serif);
     color: var(--ink);
     text-wrap: pretty;
-    animation: fade 0.9s 0.5s both;
+    animation: fade 0.6s 0.2s both;
 }
 
 .hero-actions {
@@ -492,7 +489,7 @@ button {
     flex-wrap: wrap;
     gap: 0.6rem;
     margin-top: 2rem;
-    animation: fade 0.9s 0.62s both;
+    animation: fade 0.6s 0.3s both;
 }
 
 .readout {
@@ -506,17 +503,18 @@ button {
     background: var(--bar-bg);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     color: var(--muted);
-    animation: fade 0.9s 0.9s both;
+    animation: fade 0.6s 0.45s both;
 }
 
 .ro-head {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem 0.75rem;
     padding-bottom: 0.6rem;
     border-bottom: 1px solid var(--hair);
     text-transform: uppercase;
@@ -535,6 +533,7 @@ button {
 
 .ro-ctl button {
     min-height: 28px;
+    white-space: nowrap;
     padding: 0 0.5rem;
     border: 1px solid var(--hair-2);
     background: none;
@@ -607,7 +606,7 @@ button {
 
 .ro-note {
     color: var(--muted);
-    font-size: 0.66rem;
+    font-size: 0.72rem;
 }
 
 @keyframes rise {
@@ -663,8 +662,8 @@ button {
 
 .sec-title {
     grid-column: 1 / 9;
-    font: 400 clamp(3rem, 7.4vw, 7rem)/0.92 var(--serif);
-    letter-spacing: -0.025em;
+    font: 400 clamp(2.6rem, 6vw, 5.8rem)/0.96 var(--serif);
+    letter-spacing: -0.02em;
     color: var(--ink);
 }
 
@@ -732,7 +731,8 @@ em {
 }
 
 .abs-text {
-    font: 400 clamp(1.45rem, 2.35vw, 2.1rem)/1.3 var(--serif);
+    max-width: 44ch;
+    font: 400 clamp(1.3rem, 1.95vw, 1.75rem)/1.4 var(--serif);
     color: var(--ink);
     text-wrap: pretty;
 }
@@ -766,8 +766,8 @@ em {
 }
 
 .abs-facts dt {
-    font-size: 0.66rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--muted);
 }
@@ -840,6 +840,7 @@ em {
 
 .steps-nav button {
     position: relative;
+    min-height: 32px;
     padding: 0.4rem 0;
     border: 0;
     background: none;
@@ -880,8 +881,8 @@ em {
 
 .step h3 {
     margin: 0.6rem 0 1rem;
-    font: 400 clamp(2rem, 3.4vw, 3.2rem)/1.02 var(--serif);
-    letter-spacing: -0.015em;
+    font: 400 clamp(1.8rem, 2.9vw, 2.7rem)/1.06 var(--serif);
+    letter-spacing: -0.01em;
     color: var(--ink);
 }
 
@@ -899,9 +900,8 @@ em {
 
 .step .step-tag {
     margin-top: 1.1rem;
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
     color: var(--ink);
 }
 
@@ -937,11 +937,11 @@ em {
 .plot-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem 1.2rem;
+    gap: 0.4rem 1.1rem;
     margin: 0.9rem 0 0;
     padding: 0;
     list-style: none;
-    font-size: 0.68rem;
+    font-size: 0.74rem;
     color: var(--ink);
 }
 
@@ -963,11 +963,12 @@ em {
 .sw-sig { height: 9px; background: var(--signal); vertical-align: -0.05em; }
 .sw-zz { height: 9px; background: var(--ink); opacity: 0.42; vertical-align: -0.05em; }
 .sw-red { height: 9px; background: var(--ink); opacity: 0.18; vertical-align: -0.05em; }
-.sw-fs {
-    width: 22px;
-    height: 9px;
-    vertical-align: -0.05em;
-    background: linear-gradient(90deg, var(--muon) 0 25%, var(--signal) 25% 50%, var(--signal-2) 50% 75%, var(--electron) 75%);
+.sw-mu4 { height: 9px; background: var(--muon); vertical-align: -0.05em; }
+.sw-sig2 { height: 9px; background: var(--signal-2); vertical-align: -0.05em; }
+.sw-e4 { height: 9px; background: var(--electron); vertical-align: -0.05em; }
+
+.plot-legend .fs {
+    margin-right: -0.4rem;
 }
 
 .sw-smeft {
@@ -1042,8 +1043,31 @@ em {
 
 .log-idx {
     grid-column: 1 / 2;
-    font: 400 clamp(2.2rem, 4vw, 3.6rem)/0.9 var(--serif);
+    display: grid;
+    align-content: start;
+    justify-items: start;
+    gap: 0.25rem;
     color: var(--muted);
+    text-decoration: none;
+}
+
+.log-idx .mono {
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+}
+
+.log-idx b {
+    font: 400 clamp(2.2rem, 3.6vw, 3.2rem)/0.9 var(--serif);
+    color: var(--ink);
+}
+
+a.log-idx:hover .mono,
+a.log-idx:focus-visible .mono {
+    color: var(--ink);
+}
+
+a.log-idx:hover b {
+    color: var(--signal);
 }
 
 .log-meta {
@@ -1066,8 +1090,8 @@ em {
 
 .log-body h3 {
     margin-bottom: 1.3rem;
-    font: 400 clamp(1.8rem, 3.1vw, 2.8rem)/1.06 var(--serif);
-    letter-spacing: -0.015em;
+    font: 400 clamp(1.6rem, 2.6vw, 2.35rem)/1.12 var(--serif);
+    letter-spacing: -0.01em;
     color: var(--ink);
     text-wrap: balance;
 }
@@ -1155,8 +1179,8 @@ em {
 }
 
 .paper-title {
-    font: 400 clamp(1.45rem, 2.3vw, 2.05rem)/1.14 var(--serif);
-    letter-spacing: -0.01em;
+    font: 400 clamp(1.3rem, 1.95vw, 1.8rem)/1.2 var(--serif);
+    letter-spacing: 0;
     color: var(--ink);
     text-wrap: balance;
 }
@@ -1164,7 +1188,7 @@ em {
 .paper-title a {
     text-decoration: none;
     background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
-    transition: background-size 0.45s var(--ease);
+    transition: background-size 0.25s var(--ease);
 }
 
 .paper-title a:hover {
@@ -1201,7 +1225,10 @@ em {
 
 .paper-actions a,
 .paper-actions button {
-    padding: 0.35rem 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 0.2rem 0;
     border: 0;
     background: none;
     text-decoration: none;
@@ -1228,10 +1255,10 @@ em {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
+    min-height: 32px;
     padding: 0.35rem 0;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
     color: var(--ink);
     cursor: pointer;
     list-style: none;
@@ -1282,9 +1309,8 @@ em {
 .cites li .mono {
     display: block;
     margin-top: 0.15rem;
-    font-size: 0.66rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
 }
 
@@ -1371,9 +1397,9 @@ em {
 
 .ledger th {
     padding: 0.8rem 0.9rem 0.8rem 0;
-    font-size: 0.64rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-align: left;
     text-transform: uppercase;
     color: var(--muted);
@@ -1419,7 +1445,7 @@ em {
     margin: 0 0.3rem 0.2rem 0;
     padding: 0.1rem 0.4rem;
     border: 1px solid var(--hair-2);
-    font-size: 0.62rem;
+    font-size: 0.7rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
@@ -1596,9 +1622,8 @@ em {
 }
 
 .edu-when {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
 }
 
@@ -1645,11 +1670,10 @@ em {
 }
 
 .courses dt {
-    margin-top: 1rem;
+    margin-top: 1.1rem;
     font-family: var(--mono);
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.76rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
 }
 
@@ -1658,8 +1682,7 @@ em {
     justify-content: space-between;
     gap: 1rem;
     margin: 0;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--hair);
+    padding: 0.3rem 0;
     color: var(--ink);
 }
 
@@ -1677,8 +1700,7 @@ em {
 .plain li {
     display: grid;
     gap: 0.1rem;
-    padding: 0.8rem 0;
-    border-bottom: 1px solid var(--hair);
+    padding: 0.65rem 0;
 }
 
 .plain b {
@@ -1687,9 +1709,8 @@ em {
 }
 
 .plain .mono {
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
 }
 
@@ -1698,17 +1719,14 @@ em {
 }
 
 .kit dt {
-    margin-top: 1rem;
-    font-size: 0.66rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    margin-top: 1.1rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.02em;
     color: var(--muted);
 }
 
 .kit dd {
     margin: 0.2rem 0 0;
-    padding-bottom: 0.8rem;
-    border-bottom: 1px solid var(--hair);
     color: var(--ink);
 }
 
@@ -1719,8 +1737,8 @@ em {
 }
 
 .contact-big {
-    font: 400 clamp(3.6rem, 12vw, 11.5rem)/0.86 var(--serif);
-    letter-spacing: -0.03em;
+    font: 400 clamp(3.2rem, 9.6vw, 9.2rem)/0.9 var(--serif);
+    letter-spacing: -0.02em;
     color: var(--ink);
 }
 
@@ -1742,11 +1760,11 @@ em {
 }
 
 .contact-mail > a {
-    font: 400 clamp(1.6rem, 3.4vw, 3rem)/1.1 var(--serif);
+    font: 400 clamp(1.45rem, 3vw, 2.6rem)/1.15 var(--serif);
     color: var(--ink);
     text-decoration: none;
     background: linear-gradient(var(--signal), var(--signal)) 0 100% / 100% 1px no-repeat;
-    transition: background-size 0.4s var(--ease);
+    transition: background-size 0.25s var(--ease);
     word-break: break-word;
 }
 
@@ -1814,7 +1832,7 @@ em {
 
 .links .arr {
     justify-self: end;
-    transition: transform 0.3s var(--ease);
+    transition: transform 0.2s var(--ease);
 }
 
 .links a:hover .arr {
@@ -2215,7 +2233,11 @@ em {
     }
 
     .bar-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+    }
+
+    .hero-name {
+        font-size: clamp(3.4rem, 17vw, 5.2rem);
     }
 
     .mode button,
@@ -2395,6 +2417,44 @@ html:not(.js) .steps-nav {
     .js .step,
     .js .step.is-active {
         transform: none;
+    }
+
+    /* scroll-scrubbed accumulation becomes a static key frame:
+       the finished chart stays beside the four steps, stacked */
+    .js .pin {
+        height: auto;
+    }
+
+    .js .pin-stage {
+        position: static;
+        height: auto;
+        align-items: start;
+    }
+
+    .js .step {
+        grid-area: auto;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .js .steps {
+        gap: 3rem;
+    }
+
+    .js .steps-nav,
+    .js .pin-progress {
+        display: none;
+    }
+
+    .js .pin-plot {
+        position: sticky;
+        top: calc(var(--bar-h) + 1.5rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) and (max-width: 900px) {
+    .js .pin-plot {
+        position: static;
     }
 }
 
