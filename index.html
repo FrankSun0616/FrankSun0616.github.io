@@ -162,7 +162,7 @@
                         I am a PhD candidate in physics at the Hong Kong University of Science and Technology and a member
                         of the ATLAS Collaboration. My work sits where experimental particle physics meets machine learning:
                         implementing decay-level simplified template cross-section (STXS) definitions for
-                        <span class="nowrap">H → ZZ* → 4ℓ</span> (ℓ = e, μ), probing Standard Model effective field theory (SMEFT)
+                        <span class="nowrap">H → ZZ* → 4ℓ</span> (ℓ = e, μ), now documented in an ATLAS note, probing Standard Model effective field theory (SMEFT)
                         modifications of Higgs boson couplings with large Monte Carlo samples, and training a deep-learning
                         electron identification for Run 3 data. Before HKUST I built neural-network jet calibration at Brown University
                         and studied physics and mathematics at Macalester College, with papers in stellar nucleosynthesis,
@@ -252,10 +252,10 @@
                                 <p class="step-k mono">04 / 04 · Interpret</p>
                                 <h3>Ask what it means.</h3>
                                 <p>
-                                    In the RML subgroup I am implementing decay STXS fiducial definitions in Athena, extending the
-                                    derivation and ntuple workflow for H → ZZ* → 4ℓ. In parallel I generate MadGraph and Pythia
-                                    samples to see how SMEFT operators change cross-sections and yields, which is where effects
-                                    beyond the Standard Model could appear.
+                                    In the RML subgroup I implement decay STXS fiducial definitions in Athena and generate MadGraph
+                                    and Pythia samples to see how SMEFT operators change cross-sections and yields, which is where
+                                    effects beyond the Standard Model could appear. The first result is public as the ATLAS note
+                                    <a class="step-link" href="#paper-lif">arXiv:2611.30272</a>.
                                 </p>
                                 <p class="step-tag mono"><i class="live" aria-hidden="true"></i>Current project · Sep 2025 to present</p>
                             </article>
@@ -311,8 +311,9 @@
                     <ul>
                         <li>Implementing fiducial cut definitions for Higgs boson decay STXS in the ATLAS Athena framework, extending the derivation and ntuple workflow for the H → ZZ* → 4ℓ analysis chain.</li>
                         <li>Investigating SMEFT modifications of Higgs couplings with large-scale Monte Carlo generation in MadGraph and Pythia, producing cross-section and yield distributions as functions of the Wilson coefficients.</li>
+                        <li>Main author of the ATLAS note <a href="#paper-lif">ATL-PHYS-PUB-2026-029</a> (arXiv:2611.30272), which recasts the H → ZZ* → 4ℓ STXS results into a Lorentz-invariant fiducial decay region so that EFT interpretations need no EFT-dependent corrections for the reconstruction efficiency.</li>
                     </ul>
-                    <p class="tags mono"><span>Athena</span><span>STXS</span><span>SMEFT</span><span>MadGraph</span><span>Pythia</span></p>
+                    <p class="tags mono"><span>Athena</span><span>STXS</span><span>SMEFT</span><span>MadGraph</span><span>Pythia</span><span>ATL-PHYS-PUB-2026-029</span></p>
                 </div>
             </article>
 
@@ -367,10 +368,32 @@
                 <h2 class="sec-title split" id="papers-title">
                     <span class="m"><span>Papers <em>&amp;</em> talks<i class="dot">.</i></span></span>
                 </h2>
-                <p class="sec-dek">Four papers and preprints across astrophysics, survey science and cosmology, cited by five works across three indexes.</p>
+                <p class="sec-dek">Five papers and notes, from Higgs physics with ATLAS to astrophysics, survey science and cosmology, cited by five works across three indexes so far.</p>
             </div>
 
             <ol class="paper-list">
+                <li class="paper" id="paper-lif" data-cite="ATLAS Collaboration (2026). Lorentz-invariant fiducial decay selection for the ATLAS H → ZZ* → 4ℓ STXS measurement. ATL-PHYS-PUB-2026-029, arXiv:2611.30272 [hep-ex].">
+                    <div class="paper-year mono"><b>2026</b><span>ATLAS note</span></div>
+                    <div class="paper-main">
+                        <h3 class="paper-title"><a href="https://arxiv.org/abs/2611.30272" target="_blank" rel="noopener noreferrer">Lorentz-invariant fiducial decay selection for the ATLAS <span class="nowrap">H → ZZ* → 4ℓ</span> STXS measurement</a></h3>
+                        <p class="paper-authors">ATLAS Collaboration · main author <b class="me">H. Sun</b></p>
+                        <p class="paper-venue mono">ATL-PHYS-PUB-2026-029 · arXiv:2611.30272 [hep-ex]</p>
+                        <p class="paper-summary">
+                            This note shows, with simulated signal events at √s = 13.6 TeV, that the H → ZZ* → 4ℓ STXS results can be
+                            recast into one Lorentz-invariant fiducial (LIF) decay region. The Standard Model acceptance of 0.8546 is
+                            production-independent to 0.07%, and the reconstruction efficiency changes by at most 6% over the probed
+                            ranges of the Wilson coefficients, so existing STXS cross-sections can be rescaled to this region and used
+                            in EFT interpretations without EFT-dependent efficiency corrections.
+                        </p>
+                    </div>
+                    <div class="paper-actions mono">
+                        <a href="https://arxiv.org/abs/2611.30272" target="_blank" rel="noopener noreferrer">arXiv <span aria-hidden="true">↗</span></a>
+                        <a href="https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/PUBNOTES/ATL-PHYS-PUB-2026-029/" target="_blank" rel="noopener noreferrer">ATLAS page <span aria-hidden="true">↗</span></a>
+                        <a href="https://inspirehep.net/literature/3232407" target="_blank" rel="noopener noreferrer">INSPIRE <span aria-hidden="true">↗</span></a>
+                        <button type="button" class="copy-cite">Copy citation</button>
+                    </div>
+                </li>
+
                 <li class="paper" data-cite="West, C., Heger, A., Côté, B., Serxner, L., &amp; Sun, H. (2025). The Impact of Initial Composition on Massive Star Evolution and Nucleosynthesis. The Astrophysical Journal, 987(1), 51.">
                     <div class="paper-year mono"><b>2025</b><span>Journal</span></div>
                     <div class="paper-main">

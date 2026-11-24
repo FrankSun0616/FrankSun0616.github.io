@@ -1206,6 +1206,28 @@ a.log-idx:hover b {
     color: var(--signal);
 }
 
+.paper-summary {
+    max-width: 68ch;
+    margin-top: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    text-wrap: pretty;
+}
+
+.step-link,
+.log-body li a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--hair-2);
+    text-underline-offset: 0.2em;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.step-link:hover,
+.log-body li a:hover {
+    text-decoration-color: var(--signal);
+}
+
 .paper-venue {
     margin-top: 0.3rem;
     font-size: 0.74rem;
@@ -1227,6 +1249,7 @@ a.log-idx:hover b {
 .paper-actions button {
     display: inline-flex;
     align-items: center;
+    gap: 0.35em;
     min-height: 30px;
     padding: 0.2rem 0;
     border: 0;

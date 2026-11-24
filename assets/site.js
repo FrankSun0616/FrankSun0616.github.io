@@ -1410,6 +1410,7 @@
             { l: "Fire a new collision", d: "Toy MC", run: () => { goto("#top")(); if (Detector) Detector.newEvent(); } },
             { l: "Switch to Paper mode", d: "Mode", when: () => root.dataset.theme !== "paper", run: () => setTheme("paper", true) },
             { l: "Switch to Display mode", d: "Mode", when: () => root.dataset.theme === "paper", run: () => setTheme("display", true) },
+            { l: "Lorentz-invariant fiducial decay selection for H → ZZ* → 4ℓ STXS", d: "ATLAS 2026", run: external("https://arxiv.org/abs/2611.30272") },
             { l: "Impact of Initial Composition on Massive Star Evolution", d: "ApJ 2025", run: external("https://iopscience.iop.org/article/10.3847/1538-4357/add68f") },
             { l: "Tianlai–WIYN North Celestial Cap Redshift Survey", d: "arXiv 2025", run: external("https://arxiv.org/abs/2512.23899") },
             { l: "Renormalizable Cosmology from Gauss–Bonnet with Torsion", d: "arXiv 2024", run: external("https://arxiv.org/abs/2403.07250") },
